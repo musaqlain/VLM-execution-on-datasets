@@ -1,0 +1,60 @@
+
+1. PYTHON
+  ✅  Python >= 3.9
+
+2. LIBRARIES
+  ✅  torch
+  ✅  transformers
+  ✅  PIL (Pillow)
+  ✅  nltk
+  ✅  rouge_score
+  ✅  accelerate
+  ✅  bitsandbytes
+
+3. MODEL CLASSES (transformers v5 compatibility)
+  ✅  AutoModelForCausalLM
+  ✅  AutoProcessor
+  ✅  AutoTokenizer
+  ✅  Idefics2ForConditionalGeneration
+  ✅  LlavaForConditionalGeneration
+  ✅  BLIP-2 model class
+       → Will use: AutoModelForVision2Seq
+
+4. GPU
+  ✅  CUDA available
+       → NVIDIA RTX A4500  (21.5 GB)
+
+5. DATASETS
+  ✅  RSVLM-QA.jsonl exists
+  ✅  RSVLM-QA image dir exists
+  ✅  DisasterM3 questions exist
+  ✅  DisasterM3 answers exist
+  ✅  DisasterM3 train_images dir
+       → Sample RSVLM-QA image: austin28.tif
+       → Sample DisasterM3 images: ['hurricane_matthew_00000079_post_disaster.png', 'ukraine_conflict_00000427_pre_disaster.png', 'pinery_bushfire_00001750_pre_disaster.png']
+
+6. DATA LOADERS
+[RSVLM-QA] Loading from /home/aipmu/Datasets for VLM/Raw dataset files/RSVLM-QA.jsonl ...
+[RSVLM-QA] Loaded 3 QA pairs  (skipped 0 missing images).
+  ✅  Load 3 RSVLM-QA samples
+[DisasterM3] Loading questions from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3/vqa_format/all_questions.json ...
+[DisasterM3] Loading answers   from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3/vqa_format/all_answers.json ...
+[DisasterM3] Loaded 3 QA pairs  (skipped 0 missing images).
+  ✅  Load 3 DisasterM3 samples
+       → Q: Where is the highway interchange located in the image?…
+       → A: The highway interchange is located in the central portion of the image…
+       → Q: Is there flooding visible?…
+       → A: yes…
+
+7. EVALUATION METRICS
+  ✅  Compute metrics on dummy data
+       → {'exact_match': 0.5, 'bleu1': 0.75, 'bleu4': 0.5337721807101735, 'rougeL': 0.8333333333333333}
+
+8. SINGLE-IMAGE INFERENCE TEST  (moondream2)
+  ⏳ Downloading moondream2 (~3.6 GB) …
+  ⏳ Asking: "Where is the highway interchange located in the image?…"
+  ✅  Model answered in 1.6s: "The highway interchange is located in the middle of a city, surrounded by a larg"
+
+=======================================================
+  ✅  ALL 24 CHECKS PASSED — safe to run overnight!
+=======================================================

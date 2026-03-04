@@ -1,0 +1,44 @@
+CALL FOR PAPERS
+IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing
+Special Issue on
+“Large Language Models-Enhanced Low-Altitude Remote Sensing: Advances, Applications, and Challenges”
+Low-altitude remote sensing (LARS), enabled by unmanned aerial vehicles (UAVs) and aerostats, has emerged as a
+cornerstone technology for addressing global challenges in environmental sustainability, urban planning, disaster
+management, and infrastructure monitoring. Modern LARS systems generate massive amounts of heterogeneous data
+daily, yet traditional artificial intelligence (AI) approaches struggle to reconcile these modalities. For instance,
+agricultural monitoring requires simultaneous analysis of multispectral crop health imagery, weather sensor data, and
+textual field reports, which is a task that demands seamless cross-modal alignment. However, current solutions rely on
+task-specific models, leading to fragmented workflows. The rapid development of LARS systems has exposed critical
+bottlenecks in data processing efficiency, cross-domain generalization, and decision-making agility, particularly when
+handling multimodal data streams (e.g., optical, LiDAR, SAR, thermal) in dynamic environments. Large language
+models (LLMs), originally designed for text generation, have demonstrated unprecedented capabilities in multimodal
+reasoning and context-aware decision-making, which align well with LARS requirements. Therefore, the integration
+of LLMs into LARS will be promising and may bring new solutions to various applications within the LARS field.
+This special issue aims to address the urgent need for a focused discussion on the integration of LLMs into LARS, and
+bring together cutting-edge research on LLM-enhanced LARS applications, addressing technical innovations, realworld applications, and critical challenges. By fostering interdisciplinary research at the nexus of AI and geoscience,
+ultimately put LARS toward autonomous, efficient, safe, and scalable systems.
+The broad topics include (but are not limited to):
+• LLM-enhanced multimodal data fusion and cross-domain alignment in remote sensing
+• LLM-enhanced data quality assessment and enhancement strategies in remote sensing
+• LLM-enhanced heterogeneous data fusion in remote sensing applications
+• LLM-enhanced synthetic data evaluations and utilization in remote sensing
+• LLM-enhanced multi-UAVs collaboration in low-altitude remote sensing
+• LLM-enhanced LARS applications in precision agriculture and environmental monitoring
+• LLM-enhanced LARS applications in urban planning and disaster management
+• Edge deployment and lightweight model optimization for low-altitude remote sensing
+• Data security and privacy protection in LLM-enhanced low-altitude remote sensing systems
+• Case studies showcasing the impact of LLMs on AI performance in low-altitude remote sensing
+Schedule
+1 Nov 2025 Submission system opening
+31 May 2026 Submission system closing
+Format
+All submissions will be peer reviewed according to the IEEE Geoscience and Remote Sensing Society guidelines.
+Submitted articles should not have been published or be under review elsewhere. Submit your manuscript on
+http://mc.manuscriptcentral.com/jstars, using the Manuscript Central interface and select the “Large Language
+Models-Enhanced Low-Altitude Remote Sensing: Advances, Applications, and Challenges” special issue
+manuscript type. Prospective authors should consult the site
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9082768 for guidelines and information on
+submission. All submissions must be formatted using the IEEE standard format (double column, single spaced). Please
+visit http://www.ieee.org/publications_standards/publications/authors/author_templates.html to download a template
+for transactions. Please note that since Jan. 1, 2025, IEEE J-STARS, as a fully open-access journal, is charging a flat
+publication fee $1,800 per paper.
