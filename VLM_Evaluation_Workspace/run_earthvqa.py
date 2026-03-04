@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-run_disasterm3.py
-=================
-Evaluate pretrained VLMs on the DisasterM3 disaster-assessment VQA dataset.
+run_earthvqa.py
+===============
+Evaluate pretrained VLMs on the EarthVQA remote-sensing VQA dataset.
 
 Usage examples
 --------------
   # Quick sanity check
-  python run_disasterm3.py --model moondream2 --max_samples 10
+  python run_earthvqa.py --model moondream2 --max_samples 10
 
   # Full evaluation
-  python run_disasterm3.py --model llava-1.5-7b
+  python run_earthvqa.py --model llava-1.5-7b
 
   # Results are saved as JSON in the results/ directory.
 """
@@ -18,10 +18,10 @@ Usage examples
 import argparse, json, os, time, gc, sys
 import torch
 from PIL import Image
-from datasets_loader import load_disasterm3_data
+from datasets_loader import load_earthvqa_data
 from evaluation import evaluate_predictions, evaluate_by_type
 
-# ── Model registry (identical to run_rsvlmqa.py) ─
+# ── Model registry ──────────────────────────
 MODELS = {
     "llava-1.5-7b":        "llava-hf/llava-1.5-7b-hf",
     "qwen-vl-chat":        "Qwen/Qwen-VL-Chat",
@@ -38,7 +38,6 @@ def load_model(hf_id: str):
     """Compatible with transformers v5.x (AutoModelForVision2Seq removed)."""
     from transformers import AutoProcessor, AutoTokenizer, AutoModelForCausalLM
     import transformers
-    # Patch for moondream2 + transformers v5 compat
     if not hasattr(transformers.PreTrainedModel, "all_tied_weights_keys"):
         transformers.PreTrainedModel.all_tied_weights_keys = {}
     print(f"  ⏳ Downloading / loading  {hf_id}  …")
@@ -167,7 +166,7 @@ def main():
     os.makedirs(args.results_dir, exist_ok=True)
     hf_id = MODELS[args.model]
 
-    data = load_disasterm3_data(max_samples=args.max_samples)
+    data = load_earthvqa_data(max_samples=args.max_samples)
     if not data:
         print("❌ No data loaded – check paths."); sys.exit(1)
 
@@ -196,7 +195,7 @@ def main():
     by_type = evaluate_by_type(results)
 
     print("\n" + "=" * 50)
-    print(f"DisasterM3  ▸  {args.model}")
+    print(f"EarthVQA  ▸  {args.model}")
     print("=" * 50)
     for k, v in overall.items():
         print(f"  {k:15s}: {v:.4f}")
@@ -209,9 +208,9 @@ def main():
                       f"F1={m.get('token_f1',0):.3f}"]
         print(f"  {qt:20s}  {'  '.join(line_parts)}")
 
-    out_file = os.path.join(args.results_dir, f"disasterm3_{args.model}.json")
+    out_file = os.path.join(args.results_dir, f"earthvqa_{args.model}.json")
     with open(out_file, "w") as f:
-        json.dump({"model": args.model, "dataset": "DisasterM3",
+        json.dump({"model": args.model, "dataset": "EarthVQA",
                    "overall_metrics": overall, "per_type_metrics": by_type,
                    "predictions": results}, f, indent=2)
     print(f"\n💾 Saved → {out_file}")

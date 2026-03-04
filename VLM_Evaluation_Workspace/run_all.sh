@@ -1,9 +1,9 @@
 #!/bin/bash
 # ================================================================
-# run_all.sh  –  Overnight VLM Evaluation (targets 15-24 hours)
+# run_all.sh  –  Multi-GPU VLM Evaluation (targets 20-30 hours)
 # ================================================================
-# Uses a unified virtual environment for all models.
-# Output goes to BOTH the terminal AND log files.
+# Uses a unified virtual environment and the multi-GPU orchestrator
+# to run all 8 models × 4 datasets across 16 GPUs in parallel.
 #
 # PREREQUISITES:
 #   cd "/home/aipmu/Datasets for VLM/VLM_Evaluation_Workspace"
@@ -17,53 +17,32 @@
 #   tail -f "/home/aipmu/Datasets for VLM/VLM_Evaluation_Workspace/master_log.txt"
 # ================================================================
 
-# NOTE: No 'set -e'. If one model fails, the rest continue.
-
 export HF_TOKEN=""
 export HF_HUB_DOWNLOAD_TIMEOUT=300
 export HF_HUB_ENABLE_HF_TRANSFER=1
 
 WORKSPACE="/home/aipmu/Datasets for VLM/VLM_Evaluation_Workspace"
-MAX_SAMPLES=700
-
-MODELS=(
-  "moondream2"
-  "blip2-opt-2.7b"
-  "llava-1.5-7b"
-  "qwen-vl-chat"
-  "instructblip-vicuna"
-  "idefics2-8b"
-  "internvl2-4b"
-  "llava-next-llama3"
-)
+MAX_SAMPLES=5000
+NUM_GPUS=16
 
 echo "========================================================"
-echo "  VLM BENCHMARK  •  $(date)"
-echo "  Models: ${#MODELS[@]}  |  Samples/dataset: $MAX_SAMPLES"
-echo "  Datasets: RSVLM-QA, DisasterM3"
-echo "  Envs: vlm_env_main (all models)"
+echo "  VLM BENCHMARK (MULTI-GPU)  •  $(date)"
+echo "  Models: 8  |  Datasets: 4  |  Samples/dataset: $MAX_SAMPLES"
+echo "  GPUs: $NUM_GPUS  |  Datasets: RSVLM-QA, DisasterM3, RSVQA-HR, EarthVQA"
+echo "  Mode: Parallel (multi_gpu_runner.py)"
 echo "========================================================"
 
-mkdir -p results
-
-# Activate the unified environment 
+# Activate the unified environment
 echo "🔄 Activating vlm_env_main"
 source "$WORKSPACE/vlm_env_main/bin/activate"
 
-for model in "${MODELS[@]}"; do
+mkdir -p results
 
-  echo "────────────────────────────────────────────────────────"
-  echo "  MODEL: $model  •  DATASET: RSVLM-QA  •  ENV: vlm_env_main  •  $(date)"
-  echo "────────────────────────────────────────────────────────"
-  python run_rsvlmqa.py --model "$model" --max_samples $MAX_SAMPLES 2>&1 | tee "results/log_rsvlmqa_${model}.txt"
-
-  echo ""
-  echo "────────────────────────────────────────────────────────"
-  echo "  MODEL: $model  •  DATASET: DisasterM3  •  ENV: vlm_env_main  •  $(date)"
-  echo "────────────────────────────────────────────────────────"
-  python run_disasterm3.py --model "$model" --max_samples $MAX_SAMPLES 2>&1 | tee "results/log_disasterm3_${model}.txt"
-
-done
+# ── Multi-GPU parallel mode (default) ──────────────────────
+python multi_gpu_runner.py \
+    --num_gpus $NUM_GPUS \
+    --max_samples $MAX_SAMPLES \
+    --results_dir results
 
 deactivate
 

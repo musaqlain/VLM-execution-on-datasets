@@ -1,3 +1,4 @@
 Raw dataset files/*
 VLM_Evaluation_Workspace/vlm_env_main/*
 VLM_Evaluation_Workspace/results/*
+VLM_Evaluation_Workspace/__pycache__/*

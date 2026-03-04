@@ -15,3 +15,5 @@ hf_transfer
 tiktoken
 transformers_stream_generator==0.0.5
 matplotlib
+bert-score>=0.3.13
+pycocoevalcap>=1.2

@@ -216,7 +216,12 @@ def main():
         print(f"  {k:15s}: {v:.4f}")
     print("\nPer question-type breakdown:")
     for qt, m in by_type.items():
-        print(f"  {qt:20s}  EM={m.get('exact_match',0):.3f}  BLEU1={m.get('bleu1',0):.3f}  ROUGE-L={m.get('rougeL',0):.3f}")
+        line_parts = [f"EM={m.get('exact_match',0):.3f}",
+                      f"BLEU1={m.get('bleu1',0):.3f}",
+                      f"ROUGE-L={m.get('rougeL',0):.3f}",
+                      f"METEOR={m.get('meteor',0):.3f}",
+                      f"F1={m.get('token_f1',0):.3f}"]
+        print(f"  {qt:20s}  {'  '.join(line_parts)}")
 
     # 5. Save
     out_file = os.path.join(args.results_dir, f"rsvlmqa_{args.model}.json")
