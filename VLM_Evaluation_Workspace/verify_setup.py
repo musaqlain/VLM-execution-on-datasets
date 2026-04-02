@@ -12,7 +12,17 @@ If this script prints  ✅ ALL CHECKS PASSED  you are safe to launch run_all.sh.
 """
 
 import sys, os, time
-os.environ["HF_TOKEN"] = ""
+
+# Auto-load variables from .env file
+env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+if os.path.exists(env_path):
+    with open(env_path) as f:
+        for line in f:
+            if line.strip() and not line.startswith('#'):
+                key, val = line.strip().split('=', 1)
+                os.environ[key] = val.strip('"\'')
+
+os.environ["HF_TOKEN"] = os.environ.get("HF_TOKEN", "")
 os.environ["HF_HUB_DOWNLOAD_TIMEOUT"] = "300"
 os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "1"
 
@@ -83,18 +93,16 @@ if torch.cuda.is_available():
 
 # ── 5. Dataset paths ────────────────────────
 print("\n5. DATASETS")
-BASE = "/home/aipmu/Datasets for VLM/Raw dataset files"
+BASE = "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files"
 
 check("RSVLM-QA.jsonl exists",
       lambda: None if os.path.exists(f"{BASE}/RSVLM-QA.jsonl") else (_ for _ in ()).throw(FileNotFoundError()))
 check("RSVLM-QA image dir exists",
       lambda: None if os.path.isdir(f"{BASE}/RSVLM-QA") else (_ for _ in ()).throw(FileNotFoundError()))
-check("DisasterM3 questions exist",
-      lambda: None if os.path.exists(f"{BASE}/DisasterM3/vqa_format/all_questions.json") else (_ for _ in ()).throw(FileNotFoundError()))
-check("DisasterM3 answers exist",
-      lambda: None if os.path.exists(f"{BASE}/DisasterM3/vqa_format/all_answers.json") else (_ for _ in ()).throw(FileNotFoundError()))
+check("DisasterM3 train.json exists",
+      lambda: None if os.path.exists(f"{BASE}/DisasterM3_Instruct/train.json") else (_ for _ in ()).throw(FileNotFoundError()))
 check("DisasterM3 train_images dir",
-      lambda: None if os.path.isdir(f"{BASE}/DisasterM3/train_images") else (_ for _ in ()).throw(FileNotFoundError()))
+      lambda: None if os.path.isdir(f"{BASE}/DisasterM3_Instruct/train_images") else (_ for _ in ()).throw(FileNotFoundError()))
 
 # Count a sample image
 rsvlm_sample = None
@@ -115,7 +123,7 @@ for subdir in ["INRIA-Aerial-Image-Labeling", "LoveDA", "WHU", "iSAID"]:
 if rsvlm_sample:
     print(f"       → Sample RSVLM-QA image: {os.path.basename(rsvlm_sample)}")
 
-dm3_images = os.listdir(f"{BASE}/DisasterM3/train_images")[:3]
+dm3_images = os.listdir(f"{BASE}/DisasterM3_Instruct/train_images")[:3]
 print(f"       → Sample DisasterM3 images: {dm3_images}")
 
 # ── 6. Data loader test ─────────────────────

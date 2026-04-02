@@ -1,5 +1,5 @@
 import sys, gc, torch, os
-sys.path.append("/home/aipmu/Datasets for VLM/VLM_Evaluation_Workspace")
+sys.path.append("/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace")
 
 # We recycle the powerful robust pipeline we just patched!
 from run_rsvlmqa import load_model, ask_vlm, MODELS

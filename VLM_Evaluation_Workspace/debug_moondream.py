@@ -2,7 +2,17 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from PIL import Image
 import sys, os, time
-os.environ["HF_TOKEN"] = ""
+
+# Auto-load variables from .env file (which is gitignored)
+env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+if os.path.exists(env_path):
+    with open(env_path) as f:
+        for line in f:
+            if line.strip() and not line.startswith('#'):
+                key, val = line.strip().split('=', 1)
+                os.environ[key] = val.strip('"\'')
+
+os.environ["HF_TOKEN"] = os.environ.get("HF_TOKEN", "")  # Uses loaded token or blank
 import transformers
 if not hasattr(transformers.PreTrainedModel, "all_tied_weights_keys"):
     transformers.PreTrainedModel.all_tied_weights_keys = {}

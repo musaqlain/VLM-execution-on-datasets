@@ -52,7 +52,6 @@ DATASET_SCRIPTS = {
     "rsvlmqa":     "run_rsvlmqa.py",
     "disasterm3":  "run_disasterm3.py",
     "rsvqa_hr":    "run_rsvqa_hr.py",
-    "earthvqa":    "run_earthvqa.py",
 }
 
 

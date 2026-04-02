@@ -16,7 +16,7 @@ import json
 # RSVLM-QA
 # ──────────────────────────────────────────────
 def load_rsvlmqa_data(
-    base_dir="/home/aipmu/Datasets for VLM/Raw dataset files",
+    base_dir="/home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files",
     max_samples=None
 ):
     """
@@ -64,6 +64,13 @@ def load_rsvlmqa_data(
             img_rel = entry.get("image", "")
             img_path = os.path.join(base_dir, img_rel)
 
+            # Remap: JSONL says "RSVLM-QA/..." but actual dir is "RSVLM-QA/RSVL-VQA/..."
+            if not os.path.exists(img_path) and img_rel.startswith("RSVLM-QA/"):
+                alt_rel = img_rel.replace("RSVLM-QA/", "RSVLM-QA/RSVL-VQA/", 1)
+                alt_path = os.path.join(base_dir, alt_rel)
+                if os.path.exists(alt_path):
+                    img_path = alt_path
+
             if not os.path.exists(img_path):
                 skipped_images += 1
                 continue
@@ -87,67 +94,73 @@ def load_rsvlmqa_data(
 # DisasterM3
 # ──────────────────────────────────────────────
 def load_disasterm3_data(
-    base_dir="/home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3",
+    base_dir="/home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/DisasterM3_Instruct",
     max_samples=None,
 ):
     """
-    Loads DisasterM3 in its VQA format.
+    Loads DisasterM3 in its instruction-tuning format.
 
-    File layout on disk
-    -------------------
+    File layout on disk (DisasterM3_Instruct from HuggingFace)
+    -----------------------------------------------------------
     base_dir/
       train_images/            <- PNG images  (e.g. bata_explosion_post_0.png)
-      vqa_format/
-        all_questions.json     <- {"questions": [{id, question, image_id, type}, ...]}
-        all_answers.json       <- {"answers":   [{question_id, answer}, ...]}
+      train.json               <- list of dicts, each with:
+        {
+          "pre_image_path": "train_images\\name_pre_N.png",
+          "post_image_path": "train_images\\name_post_N.png",
+          "post_image_type": "Optical",
+          "ground_truth": "Buildings, Roads, Forest, Farmland",
+          "ground_truth_option": "B, E, F, G.",
+          "options_list": ["Stadiums", "Buildings", ...],
+          "options_str": "A. Stadiums, B. Buildings, ..."
+        }
 
-    We merge questions and answers by id → question_id, and resolve image paths
-    to train_images/<image_id>.
+    We construct a VQA question from the options and use ground_truth as the answer.
+    We use the post_image for VQA (the disaster-affected image).
     """
-    q_path = os.path.join(base_dir, "vqa_format", "all_questions.json")
-    a_path = os.path.join(base_dir, "vqa_format", "all_answers.json")
+    train_json = os.path.join(base_dir, "train.json")
     image_dir = os.path.join(base_dir, "train_images")
 
-    if not os.path.exists(q_path):
-        raise FileNotFoundError(f"Cannot find {q_path}")
-    if not os.path.exists(a_path):
-        raise FileNotFoundError(f"Cannot find {a_path}")
+    if not os.path.exists(train_json):
+        raise FileNotFoundError(f"Cannot find {train_json}")
 
-    print(f"[DisasterM3] Loading questions from {q_path} ...")
-    with open(q_path, "r", encoding="utf-8") as f:
-        questions = json.load(f)["questions"]
-
-    print(f"[DisasterM3] Loading answers   from {a_path} ...")
-    with open(a_path, "r", encoding="utf-8") as f:
-        answers_list = json.load(f)["answers"]
-
-    # Build lookup: question_id → answer string
-    answer_map = {a["question_id"]: a["answer"] for a in answers_list}
+    print(f"[DisasterM3] Loading from {train_json} ...")
+    with open(train_json, "r", encoding="utf-8") as f:
+        entries = json.load(f)
 
     dataset = []
     skipped = 0
 
-    for q in questions:
+    for idx, entry in enumerate(entries):
         if max_samples and len(dataset) >= max_samples:
             break
 
-        qid = q["id"]
-        image_id = q["image_id"]            # e.g. "bata_explosion_post_0.png"
-        img_path = os.path.join(image_dir, image_id)
+        # Use post image (the disaster image) — normalise backslashes
+        post_rel = entry.get("post_image_path", "").replace("\\", "/")
+        img_path = os.path.join(base_dir, post_rel)
 
         if not os.path.exists(img_path):
             skipped += 1
             continue
 
-        gt_answer = answer_map.get(qid, "")
+        # Build question from the options
+        options_str = entry.get("options_str", "")
+        question = (
+            f"Look at this remote sensing image taken after a disaster. "
+            f"Which of the following land-cover or infrastructure categories "
+            f"are visible? Options: {options_str}"
+        )
+
+        gt_answer = entry.get("ground_truth", "")
+        post_type = entry.get("post_image_type", "Optical")
 
         dataset.append({
-            "question_id": qid,
-            "image_id": image_id,
+            "question_id": idx,
+            "image_id": os.path.basename(post_rel),
             "image_path": img_path,
-            "question": q["question"],
+            "question": question,
             "answer": str(gt_answer),
-            "question_type": q.get("type", "unknown"),
+            "question_type": f"disaster_classification_{post_type.lower()}",
         })
 
     print(f"[DisasterM3] Loaded {len(dataset)} QA pairs  (skipped {skipped} missing images).")
@@ -158,7 +171,7 @@ def load_disasterm3_data(
 # RSVQA-HR  (High Resolution)
 # ──────────────────────────────────────────────
 def load_rsvqa_hr_data(
-    base_dir="/home/aipmu/Datasets for VLM/Raw dataset files/RSVQA-HR",
+    base_dir="/home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/RSVQA-HR",
     max_samples=None,
     split="test",
 ):
@@ -168,11 +181,10 @@ def load_rsvqa_hr_data(
     File layout on disk
     -------------------
     base_dir/
-      Images/                          <- TIF images  (e.g. 0.tif, 1.tif, ...)
-      USGS_split_test_questions.json   <- {"questions": [{id, type, img_id, question}, ...]}
-      USGS_split_test_answers.json     <- {"answers":   [{question_id, answer}, ...]}
-      USGS_split_val_questions.json
-      USGS_split_val_answers.json
+      Data/                            <- TIF/PNG images  (e.g. 0.tif, 1.tif, ...)
+      USGS_split_test_questions.json   <- {"questions": [{"id": 0, "active": True/False}, ...]}
+      USGSquestions.json               <- master questions [{"id": 0, "question": "...", "img_id": 0, "answers_ids": [0]}, ...]
+      USGSanswers.json                 <- master answers [{"id": 0, "question_id": 0, "answer": "yes"}, ...]
       ...
 
     The question types in RSVQA-HR include:
@@ -182,42 +194,56 @@ def load_rsvqa_hr_data(
       - rural_urban
       - area
     """
-    q_path = os.path.join(base_dir, f"USGS_split_{split}_questions.json")
-    a_path = os.path.join(base_dir, f"USGS_split_{split}_answers.json")
-    image_dir = os.path.join(base_dir, "Images")
+    master_q_path = os.path.join(base_dir, "USGSquestions.json")
+    master_a_path = os.path.join(base_dir, "USGSanswers.json")
+    split_q_path = os.path.join(base_dir, f"USGS_split_{split}_questions.json")
+    image_dir = os.path.join(base_dir, "Data")
 
-    if not os.path.exists(q_path):
-        raise FileNotFoundError(f"Cannot find {q_path}")
-    if not os.path.exists(a_path):
-        raise FileNotFoundError(f"Cannot find {a_path}")
+    if not os.path.exists(master_q_path):
+        raise FileNotFoundError(f"Cannot find {master_q_path}")
+    if not os.path.exists(split_q_path):
+        raise FileNotFoundError(f"Cannot find {split_q_path}")
 
-    print(f"[RSVQA-HR] Loading questions from {q_path} ...")
-    with open(q_path, "r", encoding="utf-8") as f:
-        questions = json.load(f)["questions"]
+    print(f"[RSVQA-HR] Loading split flags from {split_q_path} ...")
+    with open(split_q_path, "r", encoding="utf-8") as f:
+        split_flags = json.load(f)["questions"]
+    
+    active_qids = {item["id"] for item in split_flags if item.get("active", False)}
 
-    print(f"[RSVQA-HR] Loading answers   from {a_path} ...")
-    with open(a_path, "r", encoding="utf-8") as f:
-        answers_list = json.load(f)["answers"]
+    print(f"[RSVQA-HR] Loading master questions from {master_q_path} ...")
+    with open(master_q_path, "r", encoding="utf-8") as f:
+        master_questions = json.load(f)["questions"]
 
-    # Build lookup: question_id → answer string
-    answer_map = {a["question_id"]: a["answer"] for a in answers_list}
+    print(f"[RSVQA-HR] Loading master answers from {master_a_path} ...")
+    with open(master_a_path, "r", encoding="utf-8") as f:
+        master_answers = json.load(f)["answers"]
+
+    # Build lookup: question_id → raw string answer
+    # If a question has multiple answers in the answers file (say by different people),
+    # we'll just take the first one or the most frequent. Let's take the first found.
+    answer_map = {}
+    for a in master_answers:
+        if a["question_id"] not in answer_map:
+            answer_map[a["question_id"]] = a["answer"]
 
     dataset = []
     skipped = 0
 
-    for q in questions:
+    for q in master_questions:
+        qid = q["id"]
+        if qid not in active_qids:
+            continue
+            
         if max_samples and len(dataset) >= max_samples:
             break
 
-        qid = q["id"]
         img_id = q["img_id"]
 
-        # RSVQA-HR images are named by their numeric id (e.g. "Images/0.tif")
+        # RSVQA-HR images are named by their numeric id (e.g. "Data/0.tif")
         img_filename = f"{img_id}.tif"
         img_path = os.path.join(image_dir, img_filename)
 
         if not os.path.exists(img_path):
-            # Some images may also be .png
             img_filename = f"{img_id}.png"
             img_path = os.path.join(image_dir, img_filename)
             if not os.path.exists(img_path):
@@ -243,7 +269,7 @@ def load_rsvqa_hr_data(
 # EarthVQA
 # ──────────────────────────────────────────────
 def load_earthvqa_data(
-    base_dir="/home/aipmu/Datasets for VLM/Raw dataset files/EarthVQA",
+    base_dir="/home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/EarthVQA",
     max_samples=None,
     splits=None,
 ):
@@ -326,8 +352,4 @@ if __name__ == "__main__":
 
     print("\n=== RSVQA-HR (first 3) ===")
     for item in load_rsvqa_hr_data(max_samples=3):
-        print(f"  Q: {item['question'][:80]}  |  A: {item['answer'][:60]}")
-
-    print("\n=== EarthVQA (first 3) ===")
-    for item in load_earthvqa_data(max_samples=3):
         print(f"  Q: {item['question'][:80]}  |  A: {item['answer'][:60]}")

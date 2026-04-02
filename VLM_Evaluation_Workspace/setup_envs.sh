@@ -6,12 +6,12 @@
 #   vlm_env_main  – transformers==4.44.2 (all 8 models)
 #
 # HOW TO RUN:
-#   cd "/home/aipmu/Datasets for VLM/VLM_Evaluation_Workspace"
+#   cd "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace"
 #   bash setup_envs.sh
 # ================================================================
 
 set -e
-WORKSPACE="/home/aipmu/Datasets for VLM/VLM_Evaluation_Workspace"
+WORKSPACE="/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace"
 cd "$WORKSPACE"
 
 echo "========================================================"

@@ -1,4 +1,32 @@
-Raw dataset files/*
-VLM_Evaluation_Workspace/vlm_env_main/*
-VLM_Evaluation_Workspace/results/*
-VLM_Evaluation_Workspace/__pycache__/*
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+VLM_Evaluation_Workspace/vlm_env_main/
+venv/
+.env
+
+# Datasets & Results
+Raw dataset files/
+DisasterM3/
+RSVLM-QA/
+VLM_Evaluation_Workspace/results/
+
+# Logs & outputs
+*.log
+*.out
+verify_out.txt
+verify_output.txt
+master_log.txt
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

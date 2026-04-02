@@ -6,29 +6,33 @@
 # to run all 8 models × 4 datasets across 16 GPUs in parallel.
 #
 # PREREQUISITES:
-#   cd "/home/aipmu/Datasets for VLM/VLM_Evaluation_Workspace"
+#   cd "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace"
 #   bash setup_envs.sh          # one-time: creates vlm_env_main
 #
 # HOW TO RUN:
-#   cd "/home/aipmu/Datasets for VLM/VLM_Evaluation_Workspace"
+#   cd "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace"
 #   nohup bash run_all.sh > master_log.txt 2>&1 &
 #
 # HOW TO WATCH PROGRESS (from another terminal):
-#   tail -f "/home/aipmu/Datasets for VLM/VLM_Evaluation_Workspace/master_log.txt"
+#   tail -f "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/master_log.txt"
 # ================================================================
 
-export HF_TOKEN=""
+# Auto-load .env (this file is ignored in git, so it's safe to store tokens here)
+if [ -f "$(dirname "$0")/.env" ]; then
+    export $(grep -v '^#' "$(dirname "$0")/.env" | xargs)
+fi
+
 export HF_HUB_DOWNLOAD_TIMEOUT=300
 export HF_HUB_ENABLE_HF_TRANSFER=1
 
-WORKSPACE="/home/aipmu/Datasets for VLM/VLM_Evaluation_Workspace"
-MAX_SAMPLES=5000
+WORKSPACE="/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace"
+MAX_SAMPLES=3
 NUM_GPUS=16
 
 echo "========================================================"
 echo "  VLM BENCHMARK (MULTI-GPU)  •  $(date)"
-echo "  Models: 8  |  Datasets: 4  |  Samples/dataset: $MAX_SAMPLES"
-echo "  GPUs: $NUM_GPUS  |  Datasets: RSVLM-QA, DisasterM3, RSVQA-HR, EarthVQA"
+echo "  Models: 8  |  Datasets: 3  |  Samples/dataset: $MAX_SAMPLES"
+echo "  GPUs: $NUM_GPUS  |  Datasets: RSVLM-QA, DisasterM3, RSVQA-HR"
 echo "  Mode: Parallel (multi_gpu_runner.py)"
 echo "========================================================"
 
