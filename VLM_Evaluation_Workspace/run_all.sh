@@ -26,13 +26,13 @@ export HF_HUB_DOWNLOAD_TIMEOUT=300
 export HF_HUB_ENABLE_HF_TRANSFER=1
 
 WORKSPACE="/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace"
-MAX_SAMPLES=3
+MAX_SAMPLES=5000
 NUM_GPUS=16
 
 echo "========================================================"
 echo "  VLM BENCHMARK (MULTI-GPU)  •  $(date)"
-echo "  Models: 8  |  Datasets: 3  |  Samples/dataset: $MAX_SAMPLES"
-echo "  GPUs: $NUM_GPUS  |  Datasets: RSVLM-QA, DisasterM3, RSVQA-HR"
+echo "  Models: 8  |  Datasets: 4  |  Samples/dataset: $MAX_SAMPLES"
+echo "  GPUs: $NUM_GPUS  |  Datasets: RSVLM-QA, DisasterM3, RSVQA-HR, EarthVQA"
 echo "  Mode: Parallel (multi_gpu_runner.py)"
 echo "========================================================"
 
