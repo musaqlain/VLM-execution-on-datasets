@@ -13,14 +13,7 @@ venv/
 Raw dataset files/
 DisasterM3/
 RSVLM-QA/
-VLM_Evaluation_Workspace/results/
-
-# Logs & outputs
-*.log
-*.out
-verify_out.txt
-verify_output.txt
-master_log.txt
+# Logs and outputs have been removed from ignore list per user request so they can be pushed.
 
 # OS generated files
 .DS_Store
