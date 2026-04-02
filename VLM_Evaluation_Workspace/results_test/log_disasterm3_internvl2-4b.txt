@@ -1,0 +1,52 @@
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+`flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+Current `flash-attenton` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+[DisasterM3] Loading from /home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/DisasterM3_Instruct/train.json ...
+[DisasterM3] Loaded 3 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  OpenGVLab/InternVL2-4B  …
+FlashAttention2 is not installed.
+Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s]Downloading shards:  50%|█████     | 1/2 [17:04<17:04, 1024.77s/it]'(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')), '(Request ID: 9551ff9c-e371-43e9-8041-b8d1c3d58a77)')' thrown while requesting HEAD https://huggingface.co/OpenGVLab/InternVL2-4B/resolve/main/model-00002-of-00002.safetensors
+Retrying in 1s [Retry 1/5].
+Downloading shards: 100%|██████████| 2/2 [31:29<00:00, 930.77s/it] Downloading shards: 100%|██████████| 2/2 [31:29<00:00, 944.87s/it]
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py:1007: UserWarning: Can't initialize NVML
+  raw_cnt = _raw_device_count_nvml()
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py:1059: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 803: system has unsupported display driver / cuda driver combination (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  r = torch._C._cuda_getDeviceCount() if nvml_count < 0 else nvml_count
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.76s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.12s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.21s/it]
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+You are not running the flash-attention implementation, expect numerical differences.
+'(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')), '(Request ID: 72cb7a86-4d86-438b-8dbf-c1b9aac054b2)')' thrown while requesting HEAD https://huggingface.co/roberta-large/resolve/main/tokenizer_config.json
+WARNING:huggingface_hub.utils._http:'(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')), '(Request ID: 72cb7a86-4d86-438b-8dbf-c1b9aac054b2)')' thrown while requesting HEAD https://huggingface.co/roberta-large/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Retrying in 1s [Retry 1/5].
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+✅ Inference done – 3 samples in 8.5 min
+
+==================================================
+DisasterM3  ▸  internvl2-4b
+==================================================
+  exact_match    : 0.0000
+  bleu1          : 0.0931
+  bleu4          : 0.0124
+  rougeL         : 0.1505
+  meteor         : 0.2726
+  token_f1       : 0.1676
+  bertscore      : 0.8377
+  cider          : 0.0000
+
+Per question-type breakdown:
+  disaster_classification_optical  EM=0.000  BLEU1=0.082  ROUGE-L=0.149  METEOR=0.268  F1=0.149
+  disaster_classification_sar  EM=0.000  BLEU1=0.114  ROUGE-L=0.154  METEOR=0.282  F1=0.205
+
+💾 Saved → results_test/disasterm3_internvl2-4b.json

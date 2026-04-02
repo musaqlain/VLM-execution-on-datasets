@@ -1,0 +1,34 @@
+[DisasterM3] Loading from /home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/DisasterM3_Instruct/train.json ...
+[DisasterM3] Loaded 3 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  vikhyatk/moondream2  …
+Traceback (most recent call last):
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/run_disasterm3.py", line 223, in <module>
+    main()
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/run_disasterm3.py", line 174, in main
+    model, proc = load_model(hf_id)
+                  ^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/run_disasterm3.py", line 49, in load_model
+    torch_dtype=torch.float16, revision="2024-08-26").to("cuda")
+                                                      ^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/transformers/modeling_utils.py", line 2905, in to
+    return super().to(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1381, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  [Previous line repeated 3 more times]
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 964, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1367, in convert
+    return t.to(
+           ^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 424, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 803: system has unsupported display driver / cuda driver combination

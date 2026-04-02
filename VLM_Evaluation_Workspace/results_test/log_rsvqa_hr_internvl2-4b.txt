@@ -1,0 +1,50 @@
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+`flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+Current `flash-attenton` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+[RSVQA-HR] Loading split flags from /home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/RSVQA-HR/USGS_split_test_questions.json ...
+[RSVQA-HR] Loading master questions from /home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/RSVQA-HR/USGSquestions.json ...
+[RSVQA-HR] Loading master answers from /home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/RSVQA-HR/USGSanswers.json ...
+[RSVQA-HR] Loaded 3 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  OpenGVLab/InternVL2-4B  …
+FlashAttention2 is not installed.
+Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s]Downloading shards:  50%|█████     | 1/2 [04:02<04:02, 242.44s/it]Downloading shards: 100%|██████████| 2/2 [18:27<00:00, 608.62s/it]Downloading shards: 100%|██████████| 2/2 [18:27<00:00, 553.69s/it]
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py:1007: UserWarning: Can't initialize NVML
+  raw_cnt = _raw_device_count_nvml()
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py:1059: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 803: system has unsupported display driver / cuda driver combination (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  r = torch._C._cuda_getDeviceCount() if nvml_count < 0 else nvml_count
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.63s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.06s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.14s/it]
+'(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')), '(Request ID: f6acae76-4b31-43a7-885a-2befa5d7313d)')' thrown while requesting HEAD https://huggingface.co/OpenGVLab/InternVL2-4B/resolve/main/generation_config.json
+Retrying in 1s [Retry 1/5].
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+You are not running the flash-attention implementation, expect numerical differences.
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+✅ Inference done – 3 samples in 7.8 min
+
+==================================================
+RSVQA-HR  ▸  internvl2-4b
+==================================================
+  exact_match    : 0.0000
+  bleu1          : 0.0269
+  bleu4          : 0.0076
+  rougeL         : 0.0520
+  meteor         : 0.1046
+  token_f1       : 0.0520
+  bertscore      : 0.7890
+  cider          : 0.0000
+
+Per question-type breakdown:
+  presence              EM=0.000  BLEU1=0.035  ROUGE-L=0.068  METEOR=0.134  F1=0.068
+  count                 EM=0.000  BLEU1=0.010  ROUGE-L=0.020  METEOR=0.047  F1=0.020
+
+💾 Saved → results_test/rsvqa_hr_internvl2-4b.json

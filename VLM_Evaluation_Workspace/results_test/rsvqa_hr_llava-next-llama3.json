@@ -1,0 +1,62 @@
+{
+  "model": "llava-next-llama3",
+  "dataset": "RSVQA-HR",
+  "overall_metrics": {
+    "exact_match": 0.0,
+    "bleu1": 0.02003968253968254,
+    "bleu4": 0.005532786179939783,
+    "rougeL": 0.03853348297792742,
+    "meteor": 0.07428214731585518,
+    "token_f1": 0.03853348297792742,
+    "bertscore": 0.7876166701316833,
+    "cider": 0.0006443200232454681
+  },
+  "per_type_metrics": {
+    "presence": {
+      "exact_match": 0.0,
+      "bleu1": 0.03005952380952381,
+      "bleu4": 0.008299179269909675,
+      "rougeL": 0.05780022446689113,
+      "meteor": 0.11142322097378278,
+      "token_f1": 0.05780022446689113,
+      "bertscore": 0.7849956750869751,
+      "cider": 0.0009664800348682023
+    },
+    "count": {
+      "exact_match": 0.0,
+      "bleu1": 0.0,
+      "bleu4": 0.0,
+      "rougeL": 0.0,
+      "meteor": 0.0,
+      "token_f1": 0.0,
+      "bertscore": 0.7928586006164551,
+      "cider": 0.0
+    }
+  },
+  "predictions": [
+    {
+      "question_id": 40820,
+      "image_id": "408",
+      "question": "Is there a road?",
+      "question_type": "presence",
+      "ground_truth": "yes",
+      "prediction": "Yes, there is a road in the image. It appears to be a parking lot with multiple lanes and parking spaces."
+    },
+    {
+      "question_id": 40821,
+      "image_id": "408",
+      "question": "What is the number of roads?",
+      "question_type": "count",
+      "ground_truth": "7",
+      "prediction": "3\nThe image shows a parking lot with multiple rows of cars parked in it. There are three roads visible in the image, which are likely the main roads that lead to the parking lot. The parking lot itself has several rows of parking spaces, and there are trees along the sides of the lot. The image is taken from an aerial perspective, providing a bird's-eye view of the parking lot and its surroundings."
+    },
+    {
+      "question_id": 40822,
+      "image_id": "408",
+      "question": "Is there a building at the top of a  road?",
+      "question_type": "presence",
+      "ground_truth": "no",
+      "prediction": "The image you've provided appears to be an aerial or satellite view of a parking lot. There is no clear indication of a building at the top of a road in this image. The parking lot is marked with white lines to indicate parking spaces, and there are trees and a sidewalk visible along the edges of the lot. If you have any specific questions about the image or need information about the elements within it, feel free to ask"
+    }
+  ]
+}

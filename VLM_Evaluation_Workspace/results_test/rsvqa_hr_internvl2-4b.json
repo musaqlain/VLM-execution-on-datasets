@@ -1,0 +1,62 @@
+{
+  "model": "internvl2-4b",
+  "dataset": "RSVQA-HR",
+  "overall_metrics": {
+    "exact_match": 0.0,
+    "bleu1": 0.02685815066767448,
+    "bleu4": 0.007628405729479392,
+    "rougeL": 0.05204890688761656,
+    "meteor": 0.10460766301887799,
+    "token_f1": 0.05204890688761656,
+    "bertscore": 0.7890079617500305,
+    "cider": 1.1333024082246058e-05
+  },
+  "per_type_metrics": {
+    "presence": {
+      "exact_match": 0.0,
+      "bleu1": 0.03518518518518518,
+      "bleu4": 0.009725880398175105,
+      "rougeL": 0.06797235023041474,
+      "meteor": 0.13354700854700857,
+      "token_f1": 0.06797235023041474,
+      "bertscore": 0.7970446050167084,
+      "cider": 1.6999536123369086e-05
+    },
+    "count": {
+      "exact_match": 0.0,
+      "bleu1": 0.010204081632653057,
+      "bleu4": 0.003433456392087968,
+      "rougeL": 0.020202020202020204,
+      "meteor": 0.04672897196261683,
+      "token_f1": 0.020202020202020204,
+      "bertscore": 0.7729340195655823,
+      "cider": 0.0
+    }
+  },
+  "predictions": [
+    {
+      "question_id": 40820,
+      "image_id": "408",
+      "question": "Is there a road?",
+      "question_type": "presence",
+      "ground_truth": "yes",
+      "prediction": "Yes, there is a road in the image. It is the curved road that runs parallel to the parking lot, separating the parking spaces from the trees and other vehicles."
+    },
+    {
+      "question_id": 40821,
+      "image_id": "408",
+      "question": "What is the number of roads?",
+      "question_type": "count",
+      "ground_truth": "7",
+      "prediction": "The image shows a parking lot with several rows of parking spaces. To determine the number of roads, we need to count the distinct rows of parking spaces.\n\n1. The first row is the closest to the camera.\n2. The second row is directly behind the first row.\n3. The third row is directly behind the second row.\n4. The fourth row is directly behind the third row.\n5. The fifth row is directly behind the fourth row.\n6. The sixth row is directly behind the fifth row.\n7. The seventh row is directly behind the sixth row."
+    },
+    {
+      "question_id": 40822,
+      "image_id": "408",
+      "question": "Is there a building at the top of a  road?",
+      "question_type": "presence",
+      "ground_truth": "no",
+      "prediction": "No, there is no building visible at the top of the road in the image. The image shows a parking lot with cars parked in designated spaces."
+    }
+  ]
+}

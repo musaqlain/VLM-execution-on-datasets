@@ -1,0 +1,49 @@
+{
+  "model": "internvl2-4b",
+  "dataset": "RSVLM-QA",
+  "overall_metrics": {
+    "exact_match": 0.0,
+    "bleu1": 0.38991356102120656,
+    "bleu4": 0.2614807182511218,
+    "rougeL": 0.4578258601528657,
+    "meteor": 0.5433367251169187,
+    "token_f1": 0.4746229389217754,
+    "bertscore": 0.9112301270167033,
+    "cider": 2.0209931687400107
+  },
+  "per_type_metrics": {
+    "spatial": {
+      "exact_match": 0.0,
+      "bleu1": 0.38991356102120656,
+      "bleu4": 0.2614807182511218,
+      "rougeL": 0.4578258601528657,
+      "meteor": 0.5433367251169187,
+      "token_f1": 0.4746229389217754,
+      "bertscore": 0.9112301270167033,
+      "cider": 2.0209931687400107
+    }
+  },
+  "predictions": [
+    {
+      "image_id": "0",
+      "question": "Where is the highway interchange located in the image?",
+      "question_type": "spatial",
+      "ground_truth": "The highway interchange is located in the central portion of the image.",
+      "prediction": "The highway interchange is located in the center of the image."
+    },
+    {
+      "image_id": "0",
+      "question": "In which parts of the image are the residential houses primarily found?",
+      "question_type": "spatial",
+      "ground_truth": "The houses are primarily found in the northern and eastern parts of the image.",
+      "prediction": "The residential houses are primarily found in the densely packed areas of the image, which are located to the left and right of the central highway. These areas are characterized by closely spaced buildings with similar roofing styles, indicating a residential neighborhood. The houses are interspersed with patches of greenery, which are likely small parks or gardens."
+    },
+    {
+      "image_id": "0",
+      "question": "Where are the recreational facilities situated relative to the river?",
+      "question_type": "spatial",
+      "ground_truth": "The recreational facilities are in the southwest corner of the image, adjacent to the river.",
+      "prediction": "The recreational facilities, which include a park with a playground and a sports field, are situated on the opposite side of the river from the residential area. They are located in a green space that is separated from the urban environment by the river, indicating a deliberate placement to provide a natural retreat within the city. The park is accessible via a bridge that spans the river, connecting the recreational area to the residential neighborhood."
+    }
+  ]
+}

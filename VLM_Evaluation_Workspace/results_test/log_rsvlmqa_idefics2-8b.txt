@@ -1,0 +1,82 @@
+Chat templates should be in a 'chat_template.json' file but found key='chat_template' in the processor's config. Make sure to move your template to its own file.
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py:1007: UserWarning: Can't initialize NVML
+  raw_cnt = _raw_device_count_nvml()
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py:1059: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 803: system has unsupported display driver / cuda driver combination (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  r = torch._C._cuda_getDeviceCount() if nvml_count < 0 else nvml_count
+[RSVLM-QA] Loading from /home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/RSVLM-QA.jsonl ...
+[RSVLM-QA] Loaded 3 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  HuggingFaceM4/idefics2-8b  …
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:08<00:49,  8.31s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:12<00:29,  5.88s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:16<00:20,  5.11s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:22<00:16,  5.41s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:26<00:10,  5.05s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:31<00:04,  4.84s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:35<00:00,  4.52s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:35<00:00,  5.04s/it]
+Traceback (most recent call last):
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/run_rsvlmqa.py", line 239, in <module>
+    main()
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/run_rsvlmqa.py", line 193, in main
+    pred = ask_vlm(model, proc, item["image_path"], item["question"], hf_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/run_rsvlmqa.py", line 129, in ask_vlm
+    out = model.generate(**inputs, max_new_tokens=128)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/transformers/generation/utils.py", line 2024, in generate
+    result = self._sample(
+             ^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/transformers/generation/utils.py", line 2982, in _sample
+    outputs = self(**model_inputs, return_dict=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/transformers/models/idefics2/modeling_idefics2.py", line 1578, in forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/transformers/models/idefics2/modeling_idefics2.py", line 1389, in forward
+    image_hidden_states = self.vision_model(
+                          ^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/transformers/models/idefics2/modeling_idefics2.py", line 628, in forward
+    encoder_outputs = self.encoder(
+                      ^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/transformers/models/idefics2/modeling_idefics2.py", line 553, in forward
+    layer_outputs = encoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/transformers/models/idefics2/modeling_idefics2.py", line 465, in forward
+    hidden_states, attn_weights = self.self_attn(
+                                  ^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/transformers/models/idefics2/modeling_idefics2.py", line 251, in forward
+    attn_output = torch.matmul(attn_weights, value_states)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

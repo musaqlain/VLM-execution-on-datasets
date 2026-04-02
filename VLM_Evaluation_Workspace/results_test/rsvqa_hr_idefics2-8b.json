@@ -1,0 +1,62 @@
+{
+  "model": "idefics2-8b",
+  "dataset": "RSVQA-HR",
+  "overall_metrics": {
+    "exact_match": 0.6666666666666666,
+    "bleu1": 0.6666666666666666,
+    "bleu4": 0.6666666666666666,
+    "rougeL": 0.6666666666666666,
+    "meteor": 0.3333333333333333,
+    "token_f1": 0.6666666666666666,
+    "bertscore": 0.9999192158381144,
+    "cider": 1.6666666666666667
+  },
+  "per_type_metrics": {
+    "presence": {
+      "exact_match": 1.0,
+      "bleu1": 1.0,
+      "bleu4": 1.0,
+      "rougeL": 1.0,
+      "meteor": 0.5,
+      "token_f1": 1.0,
+      "bertscore": 1.0,
+      "cider": 2.5
+    },
+    "count": {
+      "exact_match": 0.0,
+      "bleu1": 0.0,
+      "bleu4": 0.0,
+      "rougeL": 0.0,
+      "meteor": 0.0,
+      "token_f1": 0.0,
+      "bertscore": 0.9997576475143433,
+      "cider": 0.0
+    }
+  },
+  "predictions": [
+    {
+      "question_id": 40820,
+      "image_id": "408",
+      "question": "Is there a road?",
+      "question_type": "presence",
+      "ground_truth": "yes",
+      "prediction": "Yes."
+    },
+    {
+      "question_id": 40821,
+      "image_id": "408",
+      "question": "What is the number of roads?",
+      "question_type": "count",
+      "ground_truth": "7",
+      "prediction": "1"
+    },
+    {
+      "question_id": 40822,
+      "image_id": "408",
+      "question": "Is there a building at the top of a  road?",
+      "question_type": "presence",
+      "ground_truth": "no",
+      "prediction": "No."
+    }
+  ]
+}

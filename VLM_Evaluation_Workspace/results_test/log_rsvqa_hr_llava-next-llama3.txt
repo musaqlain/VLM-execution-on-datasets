@@ -1,0 +1,46 @@
+Some kwargs in processor config are unused and will not have any effect: num_additional_image_tokens, image_token, vision_feature_select_strategy, patch_size. 
+[RSVQA-HR] Loading split flags from /home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/RSVQA-HR/USGS_split_test_questions.json ...
+[RSVQA-HR] Loading master questions from /home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/RSVQA-HR/USGSquestions.json ...
+[RSVQA-HR] Loading master answers from /home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/RSVQA-HR/USGSanswers.json ...
+[RSVQA-HR] Loaded 3 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  llava-hf/llama3-llava-next-8b-hf  …
+Downloading shards:   0%|          | 0/4 [00:00<?, ?it/s]Downloading shards:  25%|██▌       | 1/4 [00:23<01:09, 23.17s/it]Downloading shards:  50%|█████     | 2/4 [15:25<18:00, 540.04s/it]'(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')), '(Request ID: c560ad53-c4f7-4893-b6fc-f2b68736f502)')' thrown while requesting HEAD https://huggingface.co/llava-hf/llama3-llava-next-8b-hf/resolve/main/model-00003-of-00004.safetensors
+Retrying in 1s [Retry 1/5].
+Downloading shards:  75%|███████▌  | 3/4 [25:18<09:24, 564.34s/it]Downloading shards: 100%|██████████| 4/4 [28:27<00:00, 416.40s/it]Downloading shards: 100%|██████████| 4/4 [28:27<00:00, 426.97s/it]
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py:1007: UserWarning: Can't initialize NVML
+  raw_cnt = _raw_device_count_nvml()
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py:1059: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 803: system has unsupported display driver / cuda driver combination (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  r = torch._C._cuda_getDeviceCount() if nvml_count < 0 else nvml_count
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  4.51it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  5.41it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  5.54it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  5.90it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  5.64it/s]
+Setting `pad_token_id` to `eos_token_id`:128009 for open-end generation.
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+Setting `pad_token_id` to `eos_token_id`:128009 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:128009 for open-end generation.
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+✅ Inference done – 3 samples in 22.2 min
+
+==================================================
+RSVQA-HR  ▸  llava-next-llama3
+==================================================
+  exact_match    : 0.0000
+  bleu1          : 0.0200
+  bleu4          : 0.0055
+  rougeL         : 0.0385
+  meteor         : 0.0743
+  token_f1       : 0.0385
+  bertscore      : 0.7876
+  cider          : 0.0006
+
+Per question-type breakdown:
+  presence              EM=0.000  BLEU1=0.030  ROUGE-L=0.058  METEOR=0.111  F1=0.058
+  count                 EM=0.000  BLEU1=0.000  ROUGE-L=0.000  METEOR=0.000  F1=0.000
+
+💾 Saved → results_test/rsvqa_hr_llava-next-llama3.json

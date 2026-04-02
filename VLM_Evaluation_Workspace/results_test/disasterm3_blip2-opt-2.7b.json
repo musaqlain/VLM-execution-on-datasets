@@ -1,0 +1,62 @@
+{
+  "model": "blip2-opt-2.7b",
+  "dataset": "DisasterM3",
+  "overall_metrics": {
+    "exact_match": 0.0,
+    "bleu1": 0.0,
+    "bleu4": 0.0,
+    "rougeL": 0.0,
+    "meteor": 0.0,
+    "token_f1": 0.0,
+    "bertscore": 0.8392805258433024,
+    "cider": 0.0
+  },
+  "per_type_metrics": {
+    "disaster_classification_optical": {
+      "exact_match": 0.0,
+      "bleu1": 0.0,
+      "bleu4": 0.0,
+      "rougeL": 0.0,
+      "meteor": 0.0,
+      "token_f1": 0.0,
+      "bertscore": 0.8323343396186829,
+      "cider": 0.0
+    },
+    "disaster_classification_sar": {
+      "exact_match": 0.0,
+      "bleu1": 0.0,
+      "bleu4": 0.0,
+      "rougeL": 0.0,
+      "meteor": 0.0,
+      "token_f1": 0.0,
+      "bertscore": 0.8531728386878967,
+      "cider": 0.0
+    }
+  },
+  "predictions": [
+    {
+      "question_id": 0,
+      "image_id": "bata_explosion_post_0.png",
+      "question": "Look at this remote sensing image taken after a disaster. Which of the following land-cover or infrastructure categories are visible? Options: A. Stadiums, B. Buildings, C. Coastline, D. Bridges, E. Farmland, F. Forest, G. Roads, H. Port facilities.",
+      "question_type": "disaster_classification_optical",
+      "ground_truth": "Buildings, Roads, Forest, Farmland",
+      "prediction": "D"
+    },
+    {
+      "question_id": 1,
+      "image_id": "bata_explosion_sar_post_0.png",
+      "question": "Look at this remote sensing image taken after a disaster. Which of the following land-cover or infrastructure categories are visible? Options: A. Stadiums, B. Buildings, C. Coastline, D. Bridges, E. Farmland, F. Forest, G. Roads, H. Port facilities.",
+      "question_type": "disaster_classification_sar",
+      "ground_truth": "Buildings, Roads, Forest, Farmland",
+      "prediction": "D"
+    },
+    {
+      "question_id": 2,
+      "image_id": "bata_explosion_post_1.png",
+      "question": "Look at this remote sensing image taken after a disaster. Which of the following land-cover or infrastructure categories are visible? Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. Buildings, G. Roads, H. Forest.",
+      "question_type": "disaster_classification_optical",
+      "ground_truth": "Buildings, Roads, Open-space ground, Forest",
+      "prediction": "D"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "model": "instructblip-vicuna",
+  "dataset": "RSVLM-QA",
+  "overall_metrics": {
+    "exact_match": 0.0,
+    "bleu1": 0.5745741236707663,
+    "bleu4": 0.36233963548367826,
+    "rougeL": 0.5672375933245498,
+    "meteor": 0.5728905470234071,
+    "token_f1": 0.6116820377689942,
+    "bertscore": 0.9176833629608154,
+    "cider": 3.3513842619598315
+  },
+  "per_type_metrics": {
+    "spatial": {
+      "exact_match": 0.0,
+      "bleu1": 0.5745741236707663,
+      "bleu4": 0.36233963548367826,
+      "rougeL": 0.5672375933245498,
+      "meteor": 0.5728905470234071,
+      "token_f1": 0.6116820377689942,
+      "bertscore": 0.9176833629608154,
+      "cider": 3.3513842619598315
+    }
+  },
+  "predictions": [
+    {
+      "image_id": "0",
+      "question": "Where is the highway interchange located in the image?",
+      "question_type": "spatial",
+      "ground_truth": "The highway interchange is located in the central portion of the image.",
+      "prediction": "The highway interchange is located in the city of Houston, Texas."
+    },
+    {
+      "image_id": "0",
+      "question": "In which parts of the image are the residential houses primarily found?",
+      "question_type": "spatial",
+      "ground_truth": "The houses are primarily found in the northern and eastern parts of the image.",
+      "prediction": "The residential houses are primarily found in the city area, which is located in the middle of the image."
+    },
+    {
+      "image_id": "0",
+      "question": "Where are the recreational facilities situated relative to the river?",
+      "question_type": "spatial",
+      "ground_truth": "The recreational facilities are in the southwest corner of the image, adjacent to the river.",
+      "prediction": "The recreational facilities are situated near the river, which is visible in the aerial view."
+    }
+  ]
+}

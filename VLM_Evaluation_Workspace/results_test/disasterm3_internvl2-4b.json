@@ -1,0 +1,62 @@
+{
+  "model": "internvl2-4b",
+  "dataset": "DisasterM3",
+  "overall_metrics": {
+    "exact_match": 0.0,
+    "bleu1": 0.09308962642295975,
+    "bleu4": 0.012392172478705348,
+    "rougeL": 0.15053384544909967,
+    "meteor": 0.2726315255020093,
+    "token_f1": 0.16762786254311676,
+    "bertscore": 0.8377134998639425,
+    "cider": 6.739187404804078e-08
+  },
+  "per_type_metrics": {
+    "disaster_classification_optical": {
+      "exact_match": 0.0,
+      "bleu1": 0.08249158249158248,
+      "bleu4": 0.012806348038337422,
+      "rougeL": 0.1488776912505726,
+      "meteor": 0.2681022178304787,
+      "token_f1": 0.1488776912505726,
+      "bertscore": 0.8330039978027344,
+      "cider": 8.219761333581652e-16
+    },
+    "disaster_classification_sar": {
+      "exact_match": 0.0,
+      "bleu1": 0.11428571428571427,
+      "bleu4": 0.011563821359441197,
+      "rougeL": 0.15384615384615383,
+      "meteor": 0.28169014084507044,
+      "token_f1": 0.20512820512820512,
+      "bertscore": 0.8471325039863586,
+      "cider": 0.0
+    }
+  },
+  "predictions": [
+    {
+      "question_id": 0,
+      "image_id": "bata_explosion_post_0.png",
+      "question": "Look at this remote sensing image taken after a disaster. Which of the following land-cover or infrastructure categories are visible? Options: A. Stadiums, B. Buildings, C. Coastline, D. Bridges, E. Farmland, F. Forest, G. Roads, H. Port facilities.",
+      "question_type": "disaster_classification_optical",
+      "ground_truth": "Buildings, Roads, Forest, Farmland",
+      "prediction": "The image shows a variety of land-cover and infrastructure categories. The visible categories include:\n\n- Buildings (B)\n- Roads (G)\n- Forest (F)\n\nThese categories are identifiable by the patterns and shapes present in the image."
+    },
+    {
+      "question_id": 1,
+      "image_id": "bata_explosion_sar_post_0.png",
+      "question": "Look at this remote sensing image taken after a disaster. Which of the following land-cover or infrastructure categories are visible? Options: A. Stadiums, B. Buildings, C. Coastline, D. Bridges, E. Farmland, F. Forest, G. Roads, H. Port facilities.",
+      "question_type": "disaster_classification_sar",
+      "ground_truth": "Buildings, Roads, Forest, Farmland",
+      "prediction": "The image shows a variety of land-cover and infrastructure categories. The visible categories include:\n\n- Buildings (B)\n- Roads (G)\n- Farmland (E)\n- Forest (F)\n\nThese categories are identifiable by the patterns and shapes present in the image."
+    },
+    {
+      "question_id": 2,
+      "image_id": "bata_explosion_post_1.png",
+      "question": "Look at this remote sensing image taken after a disaster. Which of the following land-cover or infrastructure categories are visible? Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. Buildings, G. Roads, H. Forest.",
+      "question_type": "disaster_classification_optical",
+      "ground_truth": "Buildings, Roads, Open-space ground, Forest",
+      "prediction": "The image shows a large area of open-space ground with a significant amount of smoke, indicating a possible disaster such as a wildfire or a large fire. The surrounding area includes buildings and roads, but the open-space ground is the most prominent feature in the image.\n\nTherefore, the correct answer is E. Open-space ground."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "model": "blip2-opt-2.7b",
+  "dataset": "RSVQA-HR",
+  "overall_metrics": {
+    "exact_match": 0.0,
+    "bleu1": 0.05555555555555556,
+    "bleu4": 0.012531134880523312,
+    "rougeL": 0.09523809523809523,
+    "meteor": 0.11111111111111112,
+    "token_f1": 0.09523809523809523,
+    "bertscore": 0.8789933721224467,
+    "cider": 0.24040662616220457
+  },
+  "per_type_metrics": {
+    "presence": {
+      "exact_match": 0.0,
+      "bleu1": 0.08333333333333334,
+      "bleu4": 0.018796702320784967,
+      "rougeL": 0.14285714285714285,
+      "meteor": 0.16666666666666669,
+      "token_f1": 0.14285714285714285,
+      "bertscore": 0.9097170233726501,
+      "cider": 0.36060993924330703
+    },
+    "count": {
+      "exact_match": 0.0,
+      "bleu1": 0.0,
+      "bleu4": 0.0,
+      "rougeL": 0.0,
+      "meteor": 0.0,
+      "token_f1": 0.0,
+      "bertscore": 0.8175458908081055,
+      "cider": 0.0
+    }
+  },
+  "predictions": [
+    {
+      "question_id": 40820,
+      "image_id": "408",
+      "question": "Is there a road?",
+      "question_type": "presence",
+      "ground_truth": "yes",
+      "prediction": "yes, but it's not a road"
+    },
+    {
+      "question_id": 40821,
+      "image_id": "408",
+      "question": "What is the number of roads?",
+      "question_type": "count",
+      "ground_truth": "7",
+      "prediction": "The number of roads is the number of roads"
+    },
+    {
+      "question_id": 40822,
+      "image_id": "408",
+      "question": "Is there a building at the top of a  road?",
+      "question_type": "presence",
+      "ground_truth": "no",
+      "prediction": "yes"
+    }
+  ]
+}

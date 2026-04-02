@@ -1,0 +1,37 @@
+Some kwargs in processor config are unused and will not have any effect: num_query_tokens. 
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py:1007: UserWarning: Can't initialize NVML
+  raw_cnt = _raw_device_count_nvml()
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py:1059: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 803: system has unsupported display driver / cuda driver combination (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  r = torch._C._cuda_getDeviceCount() if nvml_count < 0 else nvml_count
+[RSVLM-QA] Loading from /home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/RSVLM-QA.jsonl ...
+[RSVLM-QA] Loaded 3 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  Salesforce/blip2-opt-2.7b  …
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:16<00:16, 16.91s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:24<00:00, 11.55s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:24<00:00, 12.36s/it]
+Both `max_new_tokens` (=128) and `max_length`(=51) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+Both `max_new_tokens` (=128) and `max_length`(=51) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+Both `max_new_tokens` (=128) and `max_length`(=51) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+✅ Inference done – 3 samples in 14.4 min
+
+==================================================
+RSVLM-QA  ▸  blip2-opt-2.7b
+==================================================
+  exact_match    : 0.0000
+  bleu1          : 0.3827
+  bleu4          : 0.2088
+  rougeL         : 0.4382
+  meteor         : 0.3892
+  token_f1       : 0.4978
+  bertscore      : 0.8852
+  cider          : 2.0098
+
+Per question-type breakdown:
+  spatial               EM=0.000  BLEU1=0.383  ROUGE-L=0.438  METEOR=0.389  F1=0.498
+
+💾 Saved → results_test/rsvlmqa_blip2-opt-2.7b.json

@@ -1,0 +1,8 @@
+========================================================
+  QUICK TEST  •  Thu Apr  2 05:57:52 AM +03 2026
+  Models: 8  |  Datasets: 4  |  Samples/dataset: 3
+  GPUs: 16
+  Datasets: RSVLM-QA, DisasterM3, RSVQA-HR, EarthVQA
+  Output: results_test/
+========================================================
+🔄 Activating vlm_env_main

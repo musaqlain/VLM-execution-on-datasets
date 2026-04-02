@@ -1,0 +1,9 @@
+Chat templates should be in a 'chat_template.json' file but found key='chat_template' in the processor's config. Make sure to move your template to its own file.
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py:1007: UserWarning: Can't initialize NVML
+  raw_cnt = _raw_device_count_nvml()
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py:1059: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 803: system has unsupported display driver / cuda driver combination (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  r = torch._C._cuda_getDeviceCount() if nvml_count < 0 else nvml_count
+[DisasterM3] Loading from /home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/DisasterM3_Instruct/train.json ...
+[DisasterM3] Loaded 3 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  HuggingFaceM4/idefics2-8b  …
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:08<00:48,  8.05s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:12<00:28,  5.78s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:16<00:20,  5.05s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:22<00:16,  5.36s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:26<00:10,  5.10s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:31<00:04,  4.82s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:34<00:00,  4.38s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:34<00:00,  4.95s/it]

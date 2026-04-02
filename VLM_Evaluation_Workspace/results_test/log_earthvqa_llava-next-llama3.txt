@@ -1,0 +1,4 @@
+[EarthVQA] Warning: /home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/EarthVQA/Test_QA.json not found, skipping split 'Test'
+[EarthVQA] Warning: /home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/EarthVQA/Val_QA.json not found, skipping split 'Val'
+[EarthVQA] Loaded 0 QA pairs  (skipped 0 missing images).
+❌ No data loaded – check paths.

@@ -1,0 +1,62 @@
+{
+  "model": "llava-1.5-7b",
+  "dataset": "DisasterM3",
+  "overall_metrics": {
+    "exact_match": 0.0,
+    "bleu1": 0.15981484041521907,
+    "bleu4": 0.021589182682681295,
+    "rougeL": 0.31746031746031744,
+    "meteor": 0.12318029115341544,
+    "token_f1": 0.31746031746031744,
+    "bertscore": 0.91010715564092,
+    "cider": 0.0
+  },
+  "per_type_metrics": {
+    "disaster_classification_optical": {
+      "exact_match": 0.0,
+      "bleu1": 0.14775240032996803,
+      "bleu4": 0.019959683057222337,
+      "rougeL": 0.30952380952380953,
+      "meteor": 0.11898096304591266,
+      "token_f1": 0.30952380952380953,
+      "bertscore": 0.9041963219642639,
+      "cider": 0.0
+    },
+    "disaster_classification_sar": {
+      "exact_match": 0.0,
+      "bleu1": 0.18393972058572117,
+      "bleu4": 0.02484818193359921,
+      "rougeL": 0.3333333333333333,
+      "meteor": 0.13157894736842105,
+      "token_f1": 0.3333333333333333,
+      "bertscore": 0.9219289422035217,
+      "cider": 0.0
+    }
+  },
+  "predictions": [
+    {
+      "question_id": 0,
+      "image_id": "bata_explosion_post_0.png",
+      "question": "Look at this remote sensing image taken after a disaster. Which of the following land-cover or infrastructure categories are visible? Options: A. Stadiums, B. Buildings, C. Coastline, D. Bridges, E. Farmland, F. Forest, G. Roads, H. Port facilities.",
+      "question_type": "disaster_classification_optical",
+      "ground_truth": "Buildings, Roads, Forest, Farmland",
+      "prediction": "G. Roads"
+    },
+    {
+      "question_id": 1,
+      "image_id": "bata_explosion_sar_post_0.png",
+      "question": "Look at this remote sensing image taken after a disaster. Which of the following land-cover or infrastructure categories are visible? Options: A. Stadiums, B. Buildings, C. Coastline, D. Bridges, E. Farmland, F. Forest, G. Roads, H. Port facilities.",
+      "question_type": "disaster_classification_sar",
+      "ground_truth": "Buildings, Roads, Forest, Farmland",
+      "prediction": "G. Roads"
+    },
+    {
+      "question_id": 2,
+      "image_id": "bata_explosion_post_1.png",
+      "question": "Look at this remote sensing image taken after a disaster. Which of the following land-cover or infrastructure categories are visible? Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. Buildings, G. Roads, H. Forest.",
+      "question_type": "disaster_classification_optical",
+      "ground_truth": "Buildings, Roads, Open-space ground, Forest",
+      "prediction": "G. Roads"
+    }
+  ]
+}

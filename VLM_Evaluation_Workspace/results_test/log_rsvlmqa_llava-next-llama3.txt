@@ -1,0 +1,39 @@
+Some kwargs in processor config are unused and will not have any effect: vision_feature_select_strategy, image_token, num_additional_image_tokens, patch_size. 
+[RSVLM-QA] Loading from /home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/RSVLM-QA.jsonl ...
+[RSVLM-QA] Loaded 3 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  llava-hf/llama3-llava-next-8b-hf  …
+Downloading shards:   0%|          | 0/4 [00:00<?, ?it/s]Downloading shards:  25%|██▌       | 1/4 [13:18<39:54, 798.33s/it]Downloading shards:  50%|█████     | 2/4 [28:20<28:38, 859.26s/it]Downloading shards:  75%|███████▌  | 3/4 [38:13<12:17, 737.78s/it]Downloading shards: 100%|██████████| 4/4 [41:23<00:00, 521.39s/it]Downloading shards: 100%|██████████| 4/4 [41:23<00:00, 620.78s/it]
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py:1007: UserWarning: Can't initialize NVML
+  raw_cnt = _raw_device_count_nvml()
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py:1059: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 803: system has unsupported display driver / cuda driver combination (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  r = torch._C._cuda_getDeviceCount() if nvml_count < 0 else nvml_count
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.44it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.65it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.68it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  4.44it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  4.10it/s]
+Setting `pad_token_id` to `eos_token_id`:128009 for open-end generation.
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+Setting `pad_token_id` to `eos_token_id`:128009 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:128009 for open-end generation.
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+✅ Inference done – 3 samples in 22.2 min
+
+==================================================
+RSVLM-QA  ▸  llava-next-llama3
+==================================================
+  exact_match    : 0.0000
+  bleu1          : 0.2317
+  bleu4          : 0.1445
+  rougeL         : 0.3521
+  meteor         : 0.5251
+  token_f1       : 0.3521
+  bertscore      : 0.8874
+  cider          : 0.0065
+
+Per question-type breakdown:
+  spatial               EM=0.000  BLEU1=0.232  ROUGE-L=0.352  METEOR=0.525  F1=0.352
+
+💾 Saved → results_test/rsvlmqa_llava-next-llama3.json

@@ -1,0 +1,49 @@
+{
+  "model": "llava-next-llama3",
+  "dataset": "RSVLM-QA",
+  "overall_metrics": {
+    "exact_match": 0.0,
+    "bleu1": 0.23170274123864965,
+    "bleu4": 0.14449465569652084,
+    "rougeL": 0.3520712058462934,
+    "meteor": 0.5250878518664612,
+    "token_f1": 0.3520712058462934,
+    "bertscore": 0.8873943487803141,
+    "cider": 0.006525465708512168
+  },
+  "per_type_metrics": {
+    "spatial": {
+      "exact_match": 0.0,
+      "bleu1": 0.23170274123864965,
+      "bleu4": 0.14449465569652084,
+      "rougeL": 0.3520712058462934,
+      "meteor": 0.5250878518664612,
+      "token_f1": 0.3520712058462934,
+      "bertscore": 0.8873943487803141,
+      "cider": 0.006525465708512168
+    }
+  },
+  "predictions": [
+    {
+      "image_id": "0",
+      "question": "Where is the highway interchange located in the image?",
+      "question_type": "spatial",
+      "ground_truth": "The highway interchange is located in the central portion of the image.",
+      "prediction": "The highway interchange is located in the middle of a city, surrounded by buildings and roads. It is a complex network of roads and highways that facilitate the flow of traffic."
+    },
+    {
+      "image_id": "0",
+      "question": "In which parts of the image are the residential houses primarily found?",
+      "question_type": "spatial",
+      "ground_truth": "The houses are primarily found in the northern and eastern parts of the image.",
+      "prediction": "The residential houses are primarily found in the areas surrounding the highway and the river, as well as in the neighborhoods that are not directly adjacent to the highway. The houses are scattered throughout the image, with some clusters appearing denser than others. The residential areas are interspersed with other land uses, such as commercial buildings and open spaces."
+    },
+    {
+      "image_id": "0",
+      "question": "Where are the recreational facilities situated relative to the river?",
+      "question_type": "spatial",
+      "ground_truth": "The recreational facilities are in the southwest corner of the image, adjacent to the river.",
+      "prediction": "The recreational facilities, such as the sports field and the parking lot, are situated near the river. The sports field is located on the left side of the image, adjacent to the river, while the parking lot is situated on the right side of the image, also close to the river."
+    }
+  ]
+}

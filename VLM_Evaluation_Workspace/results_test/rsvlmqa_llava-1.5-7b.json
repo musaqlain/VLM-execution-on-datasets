@@ -1,0 +1,49 @@
+{
+  "model": "llava-1.5-7b",
+  "dataset": "RSVLM-QA",
+  "overall_metrics": {
+    "exact_match": 0.0,
+    "bleu1": 0.40970695970695964,
+    "bleu4": 0.22311867777739056,
+    "rougeL": 0.47196573751451804,
+    "meteor": 0.5410811164240253,
+    "token_f1": 0.5044860627177701,
+    "bertscore": 0.9074098865191141,
+    "cider": 1.1860270490853977
+  },
+  "per_type_metrics": {
+    "spatial": {
+      "exact_match": 0.0,
+      "bleu1": 0.40970695970695964,
+      "bleu4": 0.22311867777739056,
+      "rougeL": 0.47196573751451804,
+      "meteor": 0.5410811164240253,
+      "token_f1": 0.5044860627177701,
+      "bertscore": 0.9074098865191141,
+      "cider": 1.1860270490853977
+    }
+  },
+  "predictions": [
+    {
+      "image_id": "0",
+      "question": "Where is the highway interchange located in the image?",
+      "question_type": "spatial",
+      "ground_truth": "The highway interchange is located in the central portion of the image.",
+      "prediction": "The highway interchange is located in a city, specifically in a neighborhood with a mix of residential and commercial buildings."
+    },
+    {
+      "image_id": "0",
+      "question": "In which parts of the image are the residential houses primarily found?",
+      "question_type": "spatial",
+      "ground_truth": "The houses are primarily found in the northern and eastern parts of the image.",
+      "prediction": "The residential houses are primarily found in the middle and lower parts of the image, where the city is densely populated."
+    },
+    {
+      "image_id": "0",
+      "question": "Where are the recreational facilities situated relative to the river?",
+      "question_type": "spatial",
+      "ground_truth": "The recreational facilities are in the southwest corner of the image, adjacent to the river.",
+      "prediction": "The recreational facilities, such as the baseball field, are situated near the river, providing a scenic and relaxing environment for people to enjoy their leisure time."
+    }
+  ]
+}

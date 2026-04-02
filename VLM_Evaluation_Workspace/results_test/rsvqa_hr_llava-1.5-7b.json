@@ -1,0 +1,62 @@
+{
+  "model": "llava-1.5-7b",
+  "dataset": "RSVQA-HR",
+  "overall_metrics": {
+    "exact_match": 0.0,
+    "bleu1": 0.05681818181818183,
+    "bleu4": 0.013547216947725529,
+    "rougeL": 0.10305958132045089,
+    "meteor": 0.1518026565464896,
+    "token_f1": 0.10305958132045089,
+    "bertscore": 0.8242870370546976,
+    "cider": 0.1495250591732669
+  },
+  "per_type_metrics": {
+    "presence": {
+      "exact_match": 0.0,
+      "bleu1": 0.08522727272727275,
+      "bleu4": 0.020320825421588293,
+      "rougeL": 0.15458937198067632,
+      "meteor": 0.22770398481973442,
+      "token_f1": 0.15458937198067632,
+      "bertscore": 0.8186231553554535,
+      "cider": 0.2242875887599003
+    },
+    "count": {
+      "exact_match": 0.0,
+      "bleu1": 0.0,
+      "bleu4": 0.0,
+      "rougeL": 0.0,
+      "meteor": 0.0,
+      "token_f1": 0.0,
+      "bertscore": 0.8356149196624756,
+      "cider": 0.0
+    }
+  },
+  "predictions": [
+    {
+      "question_id": 40820,
+      "image_id": "408",
+      "question": "Is there a road?",
+      "question_type": "presence",
+      "ground_truth": "yes",
+      "prediction": "Yes, there is a road in the image."
+    },
+    {
+      "question_id": 40821,
+      "image_id": "408",
+      "question": "What is the number of roads?",
+      "question_type": "count",
+      "ground_truth": "7",
+      "prediction": "The number of roads in the parking lot is 10."
+    },
+    {
+      "question_id": 40822,
+      "image_id": "408",
+      "question": "Is there a building at the top of a  road?",
+      "question_type": "presence",
+      "ground_truth": "no",
+      "prediction": "No, there is no building at the top of a road. The image shows a parking lot with cars parked in it."
+    }
+  ]
+}

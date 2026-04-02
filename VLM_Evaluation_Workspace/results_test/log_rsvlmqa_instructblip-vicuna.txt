@@ -1,0 +1,38 @@
+Some kwargs in processor config are unused and will not have any effect: num_query_tokens. 
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py:1007: UserWarning: Can't initialize NVML
+  raw_cnt = _raw_device_count_nvml()
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/torch/cuda/__init__.py:1059: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 803: system has unsupported display driver / cuda driver combination (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  r = torch._C._cuda_getDeviceCount() if nvml_count < 0 else nvml_count
+The model weights are not tied. Please use the `tie_weights` method before using the `infer_auto_device` function.
+[RSVLM-QA] Loading from /home/aiserver/Documents/opensource/VLM-execution-on-datasets/Raw dataset files/RSVLM-QA.jsonl ...
+[RSVLM-QA] Loaded 3 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  Salesforce/instructblip-vicuna-7b  …
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:14<00:44, 14.80s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:25<00:24, 12.46s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:34<00:10, 10.79s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:35<00:00,  7.12s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:35<00:00,  8.98s/it]
+Both `max_new_tokens` (=128) and `max_length`(=51) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+Both `max_new_tokens` (=128) and `max_length`(=51) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+Both `max_new_tokens` (=128) and `max_length`(=51) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+/home/aiserver/Documents/opensource/VLM-execution-on-datasets/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+✅ Inference done – 3 samples in 14.4 min
+
+==================================================
+RSVLM-QA  ▸  instructblip-vicuna
+==================================================
+  exact_match    : 0.0000
+  bleu1          : 0.5746
+  bleu4          : 0.3623
+  rougeL         : 0.5672
+  meteor         : 0.5729
+  token_f1       : 0.6117
+  bertscore      : 0.9177
+  cider          : 3.3514
+
+Per question-type breakdown:
+  spatial               EM=0.000  BLEU1=0.575  ROUGE-L=0.567  METEOR=0.573  F1=0.612
+
+💾 Saved → results_test/rsvlmqa_instructblip-vicuna.json
