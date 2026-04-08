@@ -56,12 +56,11 @@ def load_vlm(model_key, hf_id):
     if model_key == "moondream2":
         model = AutoModelForCausalLM.from_pretrained(
             hf_id, trust_remote_code=True,
-            torch_dtype=torch.float16, token=token
-        ).to("cuda")
-        tok = AutoTokenizer.from_pretrained(
-            hf_id, trust_remote_code=True, token=token
+            dtype=torch.bfloat16, token=token,
+            device_map={"": "cuda"},
         )
-        return model, tok
+        # New Moondream2 API: model.query(image, question) — no tokenizer needed
+        return model, None
 
     if model_key == "phi-3.5-vision":
         model = AutoModelForCausalLM.from_pretrained(
@@ -138,8 +137,9 @@ def _infer_moondream(model, proc, prompt_text, image_paths, needs_dual):
         prompt_text = CONCAT_NOTE + prompt_text
     else:
         img = Image.open(image_paths[0]).convert("RGB")
-    enc = model.encode_image(img)
-    return model.answer_question(enc, prompt_text, proc)
+    # New Moondream2 API (2025+): model.query(image, question)
+    result = model.query(img, prompt_text)
+    return result["answer"].strip()
 
 
 def _infer_phi35(model, proc, prompt_text, image_paths, needs_dual, max_tokens):
