@@ -56,10 +56,10 @@ def load_vlm(model_key, hf_id):
     if model_key == "moondream2":
         model = AutoModelForCausalLM.from_pretrained(
             hf_id, trust_remote_code=True,
-            torch_dtype=torch.float16, revision="2024-08-26", token=token
+            torch_dtype=torch.float16, token=token
         ).to("cuda")
         tok = AutoTokenizer.from_pretrained(
-            hf_id, trust_remote_code=True, revision="2024-08-26", token=token
+            hf_id, trust_remote_code=True, token=token
         )
         return model, tok
 

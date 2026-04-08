@@ -170,7 +170,7 @@ def main():
                 from huggingface_hub import snapshot_download
                 token = os.environ.get("HF_TOKEN", None)
                 if key == "moondream2":
-                    snapshot_download(hf_id, revision="2024-08-26", token=token)
+                    snapshot_download(hf_id, token=token)
                 else:
                     snapshot_download(hf_id, token=token)
                 check(f"{key} downloaded", True)
