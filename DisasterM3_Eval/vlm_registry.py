@@ -142,7 +142,12 @@ def _infer_moondream(model, proc, prompt_text, image_paths, needs_dual):
     else:
         img = Image.open(image_paths[0]).convert("RGB")
     # New Moondream2 API (2025+): model.query(image, question)
-    result = model.query(img, prompt_text)
+    # Use temperature=0 (greedy) for deterministic, benchmark-quality output.
+    # Default (temp=0.5, top_p=0.3) produces garbage on structured prompts.
+    result = model.query(img, prompt_text, settings={
+        "temperature": 0.0,
+        "max_tokens": 512,
+    })
     return result["answer"].strip()
 
 
