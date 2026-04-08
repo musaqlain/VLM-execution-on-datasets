@@ -147,6 +147,7 @@ def _infer_moondream(model, proc, prompt_text, image_paths, needs_dual):
     result = model.query(img, prompt_text, settings={
         "temperature": 0.0,
         "max_tokens": 512,
+        "variant": None,
     })
     return result["answer"].strip()
 
