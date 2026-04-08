@@ -11,6 +11,9 @@ einops>=0.8.0
 # Qwen2.5-VL specific
 qwen-vl-utils>=0.0.8
 
+# Kimi-VL-A3B specific
+tiktoken>=0.7.0
+
 # Quantization (optional, for tight-VRAM models)
 bitsandbytes>=0.43.3
 
