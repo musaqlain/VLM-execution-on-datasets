@@ -5,20 +5,22 @@ Task-type-aware evaluation metrics for the DisasterM3 benchmark.
 
 Three evaluation tracks:
 
-  Track A — Single-label MCQ
+  Track A - Single-label MCQ
     accuracy: Extracted option letter matches GT letter.
 
-  Track B — Multi-label MCQ
+  Track B - Multi-label MCQ
     subset_accuracy: Full set match.
     precision, recall, f1: Set-level metrics.
     hamming_score: Per-option average accuracy.
 
-  Track C — Free-text generation
+  Track C - Free-text generation
     bleu1, bleu4: Custom n-gram precision (Python 3.12-safe).
     rougeL: Longest common subsequence F-measure.
+    meteor: Synonym/stem-aware alignment metric.
+    token_f1: Token-level precision/recall/F1.
 
 Also provides an option-letter parser that robustly extracts
-letters like A, B, C… from varied VLM outputs such as:
+letters like A, B, C from varied VLM outputs such as:
   "B"  |  "B. Buildings"  |  "Answer: B, E, F"  |  "I think B and E"
 """
 
@@ -31,8 +33,18 @@ try:
     from rouge_score import rouge_scorer
     _ROUGE_AVAILABLE = True
 except ImportError:
-    print("⚠  Missing rouge_score. Run: pip install rouge-score")
+    print("Missing rouge_score. Run: pip install rouge-score")
     _ROUGE_AVAILABLE = False
+
+_HAVE_METEOR = False
+try:
+    import nltk
+    nltk.download("wordnet", quiet=True)
+    nltk.download("omw-1.4", quiet=True)
+    from nltk.translate.meteor_score import meteor_score as _nltk_meteor
+    _HAVE_METEOR = True
+except Exception:
+    pass
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -203,8 +215,37 @@ def compute_bleu(ref_tokens: List[str], hyp_tokens: List[str], weights: tuple) -
     return bp * math.exp(log_avg)
 
 
+def token_f1(pred: str, gt: str) -> float:
+    """Token-level F1 between prediction and ground truth."""
+    p_tokens = normalize(pred).split()
+    g_tokens = normalize(gt).split()
+    if not p_tokens or not g_tokens:
+        return 0.0
+    common = Counter(p_tokens) & Counter(g_tokens)
+    num_same = sum(common.values())
+    if num_same == 0:
+        return 0.0
+    precision = num_same / len(p_tokens)
+    recall = num_same / len(g_tokens)
+    return 2 * precision * recall / (precision + recall)
+
+
+def meteor_score(pred: str, gt: str) -> float:
+    """METEOR score (uses synonym/stem matching via nltk)."""
+    if not _HAVE_METEOR:
+        return 0.0
+    p_tokens = normalize(pred).split()
+    g_tokens = normalize(gt).split()
+    if not p_tokens or not g_tokens:
+        return 0.0
+    try:
+        return _nltk_meteor([g_tokens], p_tokens)
+    except Exception:
+        return 0.0
+
+
 def free_text_metrics(pred: str, gt: str) -> Dict[str, float]:
-    """Compute BLEU-1, BLEU-4, ROUGE-L for a free-text prediction."""
+    """Compute BLEU-1, BLEU-4, ROUGE-L, METEOR, Token F1 for free-text."""
     p_tokens = normalize(pred).split()
     g_tokens = normalize(gt).split()
 
@@ -216,7 +257,10 @@ def free_text_metrics(pred: str, gt: str) -> Dict[str, float]:
         scorer = rouge_scorer.RougeScorer(["rougeL"], use_stemmer=True)
         rouge = scorer.score(normalize(gt), normalize(pred))["rougeL"].fmeasure
 
-    return {"bleu1": b1, "bleu4": b4, "rougeL": rouge}
+    met = meteor_score(pred, gt)
+    tf1 = token_f1(pred, gt)
+
+    return {"bleu1": b1, "bleu4": b4, "rougeL": rouge, "meteor": met, "token_f1": tf1}
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -294,7 +338,7 @@ def evaluate_all(results: List[Dict]) -> Dict:
     # Free-text
     ft = by_track.get("free_text", [])
     if ft:
-        for metric in ["bleu1", "bleu4", "rougeL"]:
+        for metric in ["bleu1", "bleu4", "rougeL", "meteor", "token_f1"]:
             overall[f"free_text_{metric}"] = sum(m.get(metric, 0) for m in ft) / len(ft)
 
     # ── Per-task breakdown ───────────────────────────────────
@@ -311,7 +355,7 @@ def evaluate_all(results: List[Dict]) -> Dict:
             for metric in ["precision", "recall", "f1", "subset_accuracy", "hamming_score"]:
                 task_metrics[metric] = sum(m.get(metric, 0) for m in metrics_list) / n
         elif track == "free_text":
-            for metric in ["bleu1", "bleu4", "rougeL"]:
+            for metric in ["bleu1", "bleu4", "rougeL", "meteor", "token_f1"]:
                 task_metrics[metric] = sum(m.get(metric, 0) for m in metrics_list) / n
 
         per_task[task] = task_metrics
