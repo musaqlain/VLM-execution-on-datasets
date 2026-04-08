@@ -1,0 +1,171 @@
+Total entries: 30042
+
+=== ALL FIELD NAMES (from first entry) ===
+  pre_image_path: str -> 'test_images\\bata_explosion_pre_0.png'
+  post_image_path: str -> 'test_images\\bata_explosion_post_0.png'
+  post_image_type: str -> 'Optical'
+  ground_truth: str -> 'Buildings, Roads, Forest, Open-space ground'
+  ground_truth_option: str -> 'B, E, F, G.'
+  options_list: list -> ['Stadiums', 'Buildings', 'Coastline', 'Dams', 'Open-space ground', 'Forest', 'Roads', 'Storage tank']
+  options_str: str -> 'A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space ground, F. Forest, G. Roads, H. Storage tank.'
+  prompts: str -> 'What essential land-cover objects appear damaged in this disaster zone?'
+  task: str -> 'Disaster Bearing Bodies Recognition'
+
+=== TASK TYPES (9) ===
+   12348  Referring Expression Segmentation
+    4982  Building Damage Counting
+    2363  Disaster Bearing Bodies Recognition
+    2363  Disaster Report
+    2363  Disaster Restoration Advice
+    2178  Road Damage Counting
+    2007  Disaster Scene Recognition
+    1018  Relational Reasoning
+     420  Disaster Type Recognition
+
+=== FIELD COVERAGE ===
+  cls_description               :  19508/30042
+  ground_truth                  :  30038/30042
+  ground_truth_option           :  12968/30042
+  image_path                    :   1018/30042
+  image_type                    :  13366/30042
+  objects                       :   1018/30042
+  option_str                    :   1018/30042
+  options_list                  :  12968/30042
+  options_str                   :  11950/30042
+  post_image_path               :  29024/30042
+  post_image_type               :  16676/30042
+  pre_image_path                :  29024/30042
+  prompts                       :  30042/30042
+  task                          :  30042/30042
+
+=== GT ANSWER FORMAT PER TASK ===
+
+  Building Damage Counting (4982 entries):
+    has_option: 4982, single_label: 4982, multi_label: 0
+    option_count_dist: {1: 4982}
+    GT_option: 'A'
+    GT_text:   232
+    options_str: 'A. 232, B. 324, C. 278, D. 140, E. 186.'
+    prompt:    'What is the total number of undamaged buildings following the disaster?'
+    GT_option: 'C'
+    GT_text:   232
+    options_str: 'A. 324, B. 278, C. 232, D. 140, E. 186.'
+    prompt:    'Count the buildings that remained intact after the disaster occurred.'
+
+  Disaster Bearing Bodies Recognition (2363 entries):
+    has_option: 2363, single_label: 70, multi_label: 2293
+    option_count_dist: {4: 955, 5: 250, 2: 224, 3: 842, 6: 22, 1: 70}
+    GT_option: 'B, E, F, G.'
+    GT_text:   'Buildings, Roads, Forest, Open-space ground'
+    options_str: 'A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space ground, F. Fore
+    prompt:    'What essential land-cover objects appear damaged in this disaster zone?'
+    GT_option: 'B, E, F, G.'
+    GT_text:   'Buildings, Roads, Forest, Open-space ground'
+    options_str: 'A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space ground, F. Fore
+    prompt:    'What categories of objects have sustained damage in the affected area?'
+
+  Disaster Report (2363 entries):
+    has_option: 0, single_label: 0, multi_label: 0
+    option_count_dist: {}
+    GT_option: ''
+    GT_text:   'DISASTER: Explosion\nBUILDING: Damage to individual structures is observable, p
+    options_str: ''
+    prompt:    ['Please describe a comprehensive damage situation based on pre- and post-disast
+    GT_option: ''
+    GT_text:   'DISASTER: Explosion\nBUILDING: Damage to individual structures is observable, p
+    options_str: ''
+    prompt:    ['Please describe a comprehensive damage situation based on pre- and post-disast
+
+  Disaster Restoration Advice (2363 entries):
+    has_option: 0, single_label: 0, multi_label: 0
+    option_count_dist: {}
+    GT_option: ''
+    GT_text:   "IMMEDIATE_RECOVERY: Immediate recovery should prioritize repairing damaged roof
+    options_str: ''
+    prompt:    ['Analyze disaster impacts and propose restoration strategies addressing both im
+    GT_option: ''
+    GT_text:   "IMMEDIATE_RECOVERY: Immediate recovery should prioritize repairing damaged roof
+    options_str: ''
+    prompt:    ['Analyze disaster impacts and propose restoration strategies addressing both im
+
+  Disaster Scene Recognition (2007 entries):
+    has_option: 2007, single_label: 69, multi_label: 1938
+    option_count_dist: {3: 920, 5: 108, 2: 556, 4: 338, 7: 1, 1: 69, 6: 15}
+    GT_option: 'C, D, H.'
+    GT_text:   'Residential area, Low vegetation, Forest'
+    options_str: 'A. Airport, B. Parking, C. Low vegetation, D. Residential area, E. River, F. Co
+    prompt:    'Identify the main land-use types present before the disaster.'
+    GT_option: 'A, D, F, G, H.'
+    GT_text:   'Parking, Residential area, Low vegetation, Industrial area, Forest'
+    options_str: 'A. Forest, B. Viaduct, C. Airport, D. Industrial area, E. Port, F. Parking, G. 
+    prompt:    'What land-use categories are visible in this pre-disaster image?'
+
+  Disaster Type Recognition (420 entries):
+    has_option: 420, single_label: 420, multi_label: 0
+    option_count_dist: {1: 420}
+    GT_option: 'E'
+    GT_text:   'explosion'
+    options_str: 'A. fire, B. volcano, C. landslide, D. tornado, E. explosion.'
+    prompt:    'What kind of calamity has this area experienced?'
+    GT_option: 'E'
+    GT_text:   'explosion'
+    options_str: 'A. fire, B. volcano, C. landslide, D. tornado, E. explosion.'
+    prompt:    'What disaster event has taken place in this area?'
+
+  Referring Expression Segmentation (12348 entries):
+    has_option: 0, single_label: 0, multi_label: 0
+    option_count_dist: {}
+    GT_option: ''
+    GT_text:   'masks\\flooding_mask\\hurricane_florence_00000135.png'
+    options_str: ''
+    prompt:    'Identify and outline all areas inundated by floodwater.'
+    GT_option: ''
+    GT_text:   'masks\\flooding_mask\\hurricane_florence_00000268.png'
+    options_str: ''
+    prompt:    'Map the extent of flooding coverage in the disaster event.'
+
+  Relational Reasoning (1018 entries):
+    has_option: 1018, single_label: 1018, multi_label: 0
+    option_count_dist: {1: 1018}
+    GT_option: 'A'
+    GT_text:   'The blue building in the blue box is to the right of the two red buildings in t
+    options_str: ''
+    prompt:    'Explain how object in the red box spatially relates to object in the blue box.'
+    GT_option: 'A'
+    GT_text:   'The blue structure in the blue box is located to the right of the two crimson b
+    options_str: ''
+    prompt:    'Explain how object in the red box spatially relates to object in the blue box.'
+
+  Road Damage Counting (2178 entries):
+    has_option: 2178, single_label: 2178, multi_label: 0
+    option_count_dist: {1: 2178}
+    GT_option: 'C'
+    GT_text:   '6.01%'
+    options_str: 'A. 1.63%, B. 2.78%, C. 6.01%, D. 5.06%, E. 9.39%.'
+    prompt:    'What proportion of the total image area consists of intact road surfaces?'
+    GT_option: 'E'
+    GT_text:   '6.01%'
+    options_str: 'A. 0.57%, B. 2.85%, C. 6.88%, D. 7.76%, E. 6.01%.'
+    prompt:    'What percentage of the entire image is occupied by undamaged roads?'
+
+=== IMAGE PATHS ===
+  pre_image_path present:  29024/30042
+  post_image_path present: 29024/30042
+  pre exists (of 200):     200/200
+  post exists (of 200):    200/200
+
+=== IMAGE DIRECTORIES ===
+  test_images/ -> 6261 items (6260 files)
+  masks/ -> 10 items (0 files)
+    test_road_flooded_mask/ -> 2072 files
+    flooding_mask/ -> 117 files
+    test_road_debris_covered_mask/ -> 2072 files
+    test_road_intact_mask/ -> 2072 files
+    test_building_intact_mask/ -> 2855 files
+
+=== OPTION COUNTS ===
+  Distribution of # of options in options_str: {5: 7580, 8: 4370}
+
+=== PROMPT FORMAT ===
+  Prompt data types: {'string': 25316, 'list': 4726}
+  Sample list prompt: ['Please describe a comprehensive damage situation based on pre- and post-disaster images.']

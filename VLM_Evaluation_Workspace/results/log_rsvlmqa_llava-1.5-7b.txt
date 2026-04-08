@@ -1,0 +1,74 @@
+Some kwargs in processor config are unused and will not have any effect: num_additional_image_tokens, vision_feature_select_strategy, image_token, patch_size. 
+[RSVLM-QA] Loading from /home/aipmu/Datasets for VLM/Raw dataset files/RSVLM-QA.jsonl ...
+[RSVLM-QA] Loaded 700 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  llava-hf/llava-1.5-7b-hf  …
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:11<00:23, 11.72s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:16<00:07,  7.63s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:20<00:00,  5.89s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:20<00:00,  6.77s/it]
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+  [20/700]  0.9 min elapsed
+  [40/700]  1.9 min elapsed
+  [60/700]  2.8 min elapsed
+  [80/700]  3.9 min elapsed
+  [100/700]  4.9 min elapsed
+  [120/700]  5.8 min elapsed
+  [140/700]  6.8 min elapsed
+  [160/700]  7.8 min elapsed
+  [180/700]  8.8 min elapsed
+  [200/700]  9.7 min elapsed
+  [220/700]  10.7 min elapsed
+  [240/700]  11.7 min elapsed
+  [260/700]  12.7 min elapsed
+  [280/700]  13.6 min elapsed
+  [300/700]  14.6 min elapsed
+  [320/700]  15.6 min elapsed
+  [340/700]  16.5 min elapsed
+  [360/700]  17.4 min elapsed
+  [380/700]  18.3 min elapsed
+  [400/700]  19.4 min elapsed
+  [420/700]  20.2 min elapsed
+  [440/700]  21.3 min elapsed
+  [460/700]  22.2 min elapsed
+  [480/700]  23.0 min elapsed
+  [500/700]  24.0 min elapsed
+  [520/700]  25.0 min elapsed
+  [540/700]  25.9 min elapsed
+  [560/700]  26.8 min elapsed
+  [580/700]  27.6 min elapsed
+  [600/700]  28.5 min elapsed
+  [620/700]  29.5 min elapsed
+  [640/700]  30.4 min elapsed
+  [660/700]  31.2 min elapsed
+  [680/700]  32.2 min elapsed
+  [700/700]  33.0 min elapsed
+
+✅ Inference done – 700 samples in 33.0 min
+
+==================================================
+RSVLM-QA  ▸  llava-1.5-7b
+==================================================
+  exact_match    : 0.0000
+  bleu1          : 0.2775
+  bleu4          : 0.1210
+  rougeL         : 0.3342
+
+Per question-type breakdown:
+  spatial               EM=0.000  BLEU1=0.333  ROUGE-L=0.389
+  object                EM=0.000  BLEU1=0.145  ROUGE-L=0.168
+  overall               EM=0.000  BLEU1=0.191  ROUGE-L=0.248
+  quantity              EM=0.000  BLEU1=0.239  ROUGE-L=0.292
+  count                 EM=0.000  BLEU1=0.350  ROUGE-L=0.489
+  presence              EM=0.000  BLEU1=0.292  ROUGE-L=0.426
+  caption               EM=0.000  BLEU1=0.321  ROUGE-L=0.234
+  overall_feature       EM=0.000  BLEU1=0.196  ROUGE-L=0.272
+  quantity_proportion   EM=0.000  BLEU1=0.268  ROUGE-L=0.335
+  objects               EM=0.000  BLEU1=0.138  ROUGE-L=0.181
+  overall_features      EM=0.000  BLEU1=0.149  ROUGE-L=0.198
+  overall features      EM=0.000  BLEU1=0.159  ROUGE-L=0.223
+  quantities or proportions  EM=0.000  BLEU1=0.146  ROUGE-L=0.203
+  quantities_proportions  EM=0.000  BLEU1=0.271  ROUGE-L=0.351
+  proportions           EM=0.000  BLEU1=0.249  ROUGE-L=0.244
+  quantity/proportion   EM=0.000  BLEU1=0.625  ROUGE-L=0.688
+  quantity or proportion  EM=0.000  BLEU1=0.145  ROUGE-L=0.177
+  features              EM=0.000  BLEU1=0.163  ROUGE-L=0.245
+  quantity_or_proportion  EM=0.000  BLEU1=0.200  ROUGE-L=0.316
+
+💾 Saved → results/rsvlmqa_llava-1.5-7b.json

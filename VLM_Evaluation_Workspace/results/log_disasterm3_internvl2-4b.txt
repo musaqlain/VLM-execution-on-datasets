@@ -1,0 +1,14 @@
+/home/aipmu/Datasets for VLM/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+`flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+Current `flash-attenton` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+[DisasterM3] Loading questions from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3/vqa_format/all_questions.json ...
+[DisasterM3] Loading answers   from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3/vqa_format/all_answers.json ...
+[DisasterM3] Loaded 700 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  OpenGVLab/InternVL2-4B  …
+FlashAttention2 is not installed.
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.85s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.25s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.34s/it]
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+You are not running the flash-attention implementation, expect numerical differences.

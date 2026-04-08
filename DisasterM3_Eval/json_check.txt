@@ -1,0 +1,47 @@
+=== METADATA ===
+  model_name: moondream2
+  hf_id: vikhyatk/moondream2
+  dataset: DisasterM3_Bench
+  total_samples: 8
+  errors: 0
+  sampling: stratified
+  timestamp: 20260405T025152Z
+  gpu: NVIDIA RTX A4500
+  inference_seconds: 10.0
+
+=== OVERALL METRICS ===
+  mcq_single_label_accuracy: 0.2500
+  mcq_multi_label_precision: 1.0000
+  mcq_multi_label_recall: 0.2500
+  mcq_multi_label_f1: 0.4000
+  mcq_multi_label_subset_accuracy: 0.0000
+  mcq_multi_label_hamming_score: 0.2500
+  free_text_bleu1: 0.2162
+  free_text_bleu4: 0.0231
+  free_text_rougeL: 0.1692
+
+=== BY TASK ===
+  Disaster Scene Recognition: {'track': 'multi_label_mcq', 'count': 1, 'precision': 1.0, 'recall': 0.25, 'f1': 0.4, 'subset_accuracy': 0.0, 'hamming_score': 0.25}
+  Disaster Report: {'track': 'free_text', 'count': 1, 'bleu1': 0.27895573491502085, 'bleu4': 0.030888426704544978, 'rougeL': 0.1951219512195122}
+  Road Damage Counting: {'track': 'single_label_mcq', 'count': 1, 'accuracy': 0.0}
+  Relational Reasoning: {'track': 'single_label_mcq', 'count': 1, 'accuracy': 1.0}
+  Disaster Bearing Bodies Recognition: {'track': 'multi_label_mcq', 'count': 1, 'precision': 1.0, 'recall': 0.25, 'f1': 0.4, 'subset_accuracy': 0.0, 'hamming_score': 0.25}
+  Disaster Type Recognition: {'track': 'single_label_mcq', 'count': 1, 'accuracy': 0.0}
+  Disaster Restoration Advice: {'track': 'free_text', 'count': 1, 'bleu1': 0.15346534653465346, 'bleu4': 0.015354506459716937, 'rougeL': 0.14334470989761092}
+  Building Damage Counting: {'track': 'single_label_mcq', 'count': 1, 'accuracy': 0.0}
+
+=== SAMPLE PREDICTION #1 ===
+  sample_id: 28244
+  task_type: Disaster Scene Recognition
+  eval_track: multi_label_mcq
+  image_path: /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3_Bench/test_images/hurricane_harvey_00000505_post_disaster.png
+  image_type: Optical
+  prompt: What land-use categories are visible in this pre-disaster image?
+  options: A. Low vegetation, B. Viaduct, C. Residential area, D. Port, E. Bridge, F. Forest, G. River, H. Pond.
+  ground_truth_text: River, Forest, Residential area, Low vegetation
+  ground_truth_options: ['A', 'C', 'F', 'G']
+  prediction_raw: 'C'
+  prediction_parsed: ['C']
+  per_sample_metrics: {'precision': 1.0, 'recall': 0.25, 'f1': 0.4, 'subset_accuracy': 0.0, 'hamming_score': 0.25}
+
+JSON is valid and machine-readable ✅

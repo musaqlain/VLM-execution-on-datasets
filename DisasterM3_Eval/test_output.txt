@@ -1,0 +1,23 @@
+[Dataset] Loading DisasterM3 Bench from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3_Bench/benchmark_release.json ...
+[Dataset] Built 17694 evaluable samples (skipped 0 missing images, 12348 segmentation).
+[Dataset] Stratified sample: {'Disaster Bearing Bodies Recognition': 1, 'Building Damage Counting': 3, 'Disaster Report': 1, 'Disaster Type Recognition': 1, 'Disaster Restoration Advice': 1, 'Road Damage Counting': 1, 'Relational Reasoning': 1, 'Disaster Scene Recognition': 1}
+[Dataset] Returning 10 samples.
+Loaded 10 items
+  [0] track=single_label_mcq     task=Disaster Type Recognition
+  [1] track=single_label_mcq     task=Building Damage Counting
+  [2] track=single_label_mcq     task=Building Damage Counting
+  [3] track=single_label_mcq     task=Relational Reasoning
+  [4] track=free_text            task=Disaster Report
+  [5] track=free_text            task=Disaster Restoration Advice
+  [6] track=single_label_mcq     task=Road Damage Counting
+  [7] track=single_label_mcq     task=Building Damage Counting
+  [8] track=multi_label_mcq      task=Disaster Scene Recognition
+  [9] track=multi_label_mcq      task=Disaster Bearing Bodies Recognition
+
+  PASS parse("B") -> ['B']
+  PASS parse("B. Buildings") -> ['B']
+  PASS parse("Answer: B") -> ['B']
+  PASS parse("B, E, F") -> ['B', 'E', 'F']
+  PASS parse("Answer: F. Buildings") -> ['F']
+  PASS parse("H") -> ['H']
+Parser tests: ALL PASS 

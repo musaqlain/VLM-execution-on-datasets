@@ -1,0 +1,57 @@
+[DisasterM3] Loading questions from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3/vqa_format/all_questions.json ...
+[DisasterM3] Loading answers   from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3/vqa_format/all_answers.json ...
+[DisasterM3] Loaded 700 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  vikhyatk/moondream2  …
+  [20/700]  0.2 min elapsed
+  [40/700]  0.4 min elapsed
+  [60/700]  0.7 min elapsed
+  [80/700]  0.9 min elapsed
+  [100/700]  1.1 min elapsed
+  [120/700]  1.3 min elapsed
+  [140/700]  1.6 min elapsed
+  [160/700]  1.8 min elapsed
+  [180/700]  2.0 min elapsed
+  [200/700]  2.2 min elapsed
+  [220/700]  2.5 min elapsed
+  [240/700]  2.7 min elapsed
+  [260/700]  3.0 min elapsed
+  [280/700]  3.2 min elapsed
+  [300/700]  3.5 min elapsed
+  [320/700]  3.7 min elapsed
+  [340/700]  3.9 min elapsed
+  [360/700]  4.1 min elapsed
+  [380/700]  4.3 min elapsed
+  [400/700]  4.5 min elapsed
+  [420/700]  4.8 min elapsed
+  [440/700]  5.1 min elapsed
+  [460/700]  5.3 min elapsed
+  [480/700]  5.5 min elapsed
+  [500/700]  5.7 min elapsed
+  [520/700]  6.0 min elapsed
+  [540/700]  6.2 min elapsed
+  [560/700]  6.5 min elapsed
+  [580/700]  6.7 min elapsed
+  [600/700]  7.0 min elapsed
+  [620/700]  7.2 min elapsed
+  [640/700]  7.4 min elapsed
+  [660/700]  7.7 min elapsed
+  [680/700]  7.9 min elapsed
+  [700/700]  8.3 min elapsed
+
+✅ Inference done – 700 samples in 8.3 min
+
+==================================================
+DisasterM3  ▸  moondream2
+==================================================
+  exact_match    : 0.0000
+  bleu1          : 0.0308
+  bleu4          : 0.0076
+  rougeL         : 0.0577
+
+Per question-type breakdown:
+  presence              EM=0.000  BLEU1=0.043  ROUGE-L=0.080
+  disaster_type         EM=0.000  BLEU1=0.000  ROUGE-L=0.007
+  damage                EM=0.000  BLEU1=0.015  ROUGE-L=0.027
+  condition             EM=0.000  BLEU1=0.004  ROUGE-L=0.007
+
+💾 Saved → results/disasterm3_moondream2.json

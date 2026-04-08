@@ -1,0 +1,59 @@
+Chat templates should be in a 'chat_template.json' file but found key='chat_template' in the processor's config. Make sure to move your template to its own file.
+[DisasterM3] Loading questions from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3/vqa_format/all_questions.json ...
+[DisasterM3] Loading answers   from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3/vqa_format/all_answers.json ...
+[DisasterM3] Loaded 700 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  HuggingFaceM4/idefics2-8b  …
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:04<00:24,  4.03s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:08<00:20,  4.02s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:12<00:16,  4.12s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:15<00:11,  3.85s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:18<00:06,  3.34s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:20<00:02,  2.96s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:22<00:00,  2.62s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:22<00:00,  3.18s/it]
+  [20/700]  12.7 min elapsed
+  [40/700]  25.2 min elapsed
+  [60/700]  37.8 min elapsed
+  [80/700]  50.3 min elapsed
+  [100/700]  62.8 min elapsed
+  [120/700]  75.4 min elapsed
+  [140/700]  87.9 min elapsed
+  [160/700]  100.4 min elapsed
+  [180/700]  113.0 min elapsed
+  [200/700]  125.5 min elapsed
+  [220/700]  138.1 min elapsed
+  [240/700]  150.6 min elapsed
+  [260/700]  163.1 min elapsed
+  [280/700]  175.7 min elapsed
+  [300/700]  188.2 min elapsed
+  [320/700]  200.7 min elapsed
+  [340/700]  213.3 min elapsed
+  [360/700]  225.8 min elapsed
+  [380/700]  238.3 min elapsed
+  [400/700]  251.2 min elapsed
+  [420/700]  263.7 min elapsed
+  [440/700]  276.3 min elapsed
+  [460/700]  288.8 min elapsed
+  [480/700]  301.3 min elapsed
+  [500/700]  313.8 min elapsed
+  [520/700]  326.4 min elapsed
+  [540/700]  338.9 min elapsed
+  [560/700]  351.4 min elapsed
+  [580/700]  363.9 min elapsed
+  [600/700]  378.4 min elapsed
+  [620/700]  393.0 min elapsed
+  [640/700]  405.6 min elapsed
+  [660/700]  418.1 min elapsed
+  [680/700]  430.6 min elapsed
+  [700/700]  443.1 min elapsed
+
+✅ Inference done – 700 samples in 443.1 min
+
+==================================================
+DisasterM3  ▸  idefics2-8b
+==================================================
+  exact_match    : 0.2700
+  bleu1          : 0.2700
+  bleu4          : 0.2700
+  rougeL         : 0.2714
+
+Per question-type breakdown:
+  presence              EM=0.409  BLEU1=0.409  ROUGE-L=0.409
+  disaster_type         EM=0.000  BLEU1=0.000  ROUGE-L=0.013
+  damage                EM=0.000  BLEU1=0.000  ROUGE-L=0.000
+  condition             EM=0.000  BLEU1=0.000  ROUGE-L=0.000
+
+💾 Saved → results/disasterm3_idefics2-8b.json

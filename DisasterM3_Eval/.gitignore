@@ -1,0 +1,18 @@
+# Environments
+venv/
+vlm_env_disasterm3/
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Results & Logs
+results/
+master_log.txt
+*.log
+
+# Caching
+.cache/

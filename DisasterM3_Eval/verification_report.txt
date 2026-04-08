@@ -1,0 +1,405 @@
+==========================================================================================
+  COMPREHENSIVE METRIC VERIFICATION — 8 models loaded
+==========================================================================================
+
+──────────────────────────────────────────────────────────────────────────────────────────
+  SECTION 1: TIMING ANALYSIS
+──────────────────────────────────────────────────────────────────────────────────────────
+  Model                      Samples  Seconds   Sec/Sample  Errors
+  ------------------------------------------------------------
+  moondream2                      50     65.9         1.32       0
+  blip2-opt-2.7b                  50     15.5         0.31       0
+  llava-1.5-7b                    50     87.5         1.75       0
+  qwen-vl-chat                    50    186.5         3.73       0
+  instructblip-vicuna             50     75.2         1.50       0
+  idefics2-8b                     50   1883.7        37.67       0 ⚠ SLOW
+  internvl2-4b                    50    140.2         2.80       0
+  llava-next-llama3               50    147.4         2.95       0
+
+──────────────────────────────────────────────────────────────────────────────────────────
+  SECTION 2: PARSER ISSUE AUDIT
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Issue Type Summary:
+    PARSE_EMPTY         :    8 occurrences
+    NUMBER_ONLY         :    5 occurrences
+    VALUE_NOT_LETTER    :    5 occurrences
+    EMPTY_FREETEXT      :    3 occurrences
+    DEEP_EXTRACT        :    3 occurrences
+
+  Issues Per Model:
+
+    blip2-opt-2.7b (3 issues):
+      [Disaster Restoration Advice] EMPTY_FREETEXT: Model returned empty string
+        Pred: ""
+        GT:   []
+      [Disaster Restoration Advice] EMPTY_FREETEXT: Model returned empty string
+        Pred: ""
+        GT:   []
+      [Disaster Restoration Advice] EMPTY_FREETEXT: Model returned empty string
+        Pred: ""
+        GT:   []
+
+    qwen-vl-chat (4 issues):
+      [Road Damage Counting] DEEP_EXTRACT: Letter 'A' found at pos 136 in 366-char response
+        Pred: "Based on the image, it is not possible to accurately determine the ratio between"
+        GT:   ['D']
+      [Building Damage Counting] PARSE_EMPTY: Prediction 'There is no existence of any buildings being undamaged in th' → no letters found
+        Pred: "There is no existence of any buildings being undamaged in the image."
+        GT:   ['A']
+      [Disaster Scene Recognition] DEEP_EXTRACT: Letter 'B' found at pos 73 in 324-char response
+        Pred: "Based on the pre-disaster imagery, the land-use patterns that appear are B. Fore"
+        GT:   ['B', 'E', 'G']
+      [Disaster Scene Recognition] DEEP_EXTRACT: Letter 'G' found at pos 56 in 88-char response
+        Pred: "The main land-use types present before the disaster are G. Low vegetation and H."
+        GT:   ['D', 'G', 'H']
+
+    instructblip-vicuna (17 issues):
+      [Building Damage Counting] NUMBER_ONLY: Model output '10' — no letter extracted
+        Pred: "10"
+        GT:   ['D']
+      [Building Damage Counting] PARSE_EMPTY: Prediction '10' → no letters found
+        Pred: "10"
+        GT:   ['D']
+      [Building Damage Counting] VALUE_NOT_LETTER: Model output value '10' = option C
+        Pred: "10"
+        GT:   ['D']
+      [Building Damage Counting] NUMBER_ONLY: Model output '0' — no letter extracted
+        Pred: "0"
+        GT:   ['D']
+      [Building Damage Counting] PARSE_EMPTY: Prediction '0' → no letters found
+        Pred: "0"
+        GT:   ['D']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+  SECTION 3: METRIC RECOMPUTATION VERIFICATION
+──────────────────────────────────────────────────────────────────────────────────────────
+  ✅ moondream2: All MCQ metrics verified correct
+  ✅ blip2-opt-2.7b: All MCQ metrics verified correct
+  ✅ llava-1.5-7b: All MCQ metrics verified correct
+  ✅ qwen-vl-chat: All MCQ metrics verified correct
+  ✅ instructblip-vicuna: All MCQ metrics verified correct
+  ✅ idefics2-8b: All MCQ metrics verified correct
+  ✅ internvl2-4b: All MCQ metrics verified correct
+  ✅ llava-next-llama3: All MCQ metrics verified correct
+
+  Total MCQ samples checked: 288
+  Mismatches found: 0
+
+──────────────────────────────────────────────────────────────────────────────────────────
+  SECTION 4: CROSS-MODEL METRIC COMPARISON BY TASK TYPE
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  [SINGLE_LABEL_MCQ] Building Damage Counting:
+    Model                        N   Accuracy
+    ----------------------------------------
+    moondream2                  13      0.231
+    blip2-opt-2.7b              13      0.385
+    llava-1.5-7b                13      0.308
+    qwen-vl-chat                13      0.077
+    instructblip-vicuna         13      0.077
+    idefics2-8b                 13      0.154
+    internvl2-4b                13      0.308
+    llava-next-llama3           13      0.077
+
+  [MULTI_LABEL_MCQ] Disaster Bearing Bodies Recognition:
+    Model                        N    Prec     Rec      F1  SubAcc
+    ----------------------------------------------------------
+    moondream2                   7   0.857   0.286   0.424   0.000
+    blip2-opt-2.7b               7   0.429   0.131   0.200   0.000
+    llava-1.5-7b                 7   0.857   0.262   0.400   0.000
+    qwen-vl-chat                 7   0.857   0.286   0.424   0.000
+    instructblip-vicuna          7   0.857   0.286   0.424   0.000
+    idefics2-8b                  7   1.000   0.333   0.495   0.000
+    internvl2-4b                 7   0.857   0.262   0.400   0.000
+    llava-next-llama3            7   0.857   0.262   0.400   0.000
+
+  [FREE_TEXT] Disaster Report:
+    Model                        N    BLEU1    BLEU4   ROUGEL
+    -----------------------------------------------------
+    moondream2                   7    0.211    0.023    0.163
+    blip2-opt-2.7b               7    0.015    0.003    0.079
+    llava-1.5-7b                 7    0.201    0.028    0.173
+    qwen-vl-chat                 7    0.151    0.021    0.150
+    instructblip-vicuna          7    0.117    0.013    0.132
+    idefics2-8b                  7    0.001    0.000    0.071
+    internvl2-4b                 7    0.161    0.024    0.171
+    llava-next-llama3            7    0.233    0.026    0.148
+
+  [FREE_TEXT] Disaster Restoration Advice:
+    Model                        N    BLEU1    BLEU4   ROUGEL
+    -----------------------------------------------------
+    moondream2                   7    0.170    0.017    0.134
+    blip2-opt-2.7b               7    0.010    0.002    0.048
+    llava-1.5-7b                 7    0.242    0.031    0.144
+    qwen-vl-chat                 7    0.135    0.018    0.128
+    instructblip-vicuna          7    0.256    0.033    0.154
+    idefics2-8b                  7    0.001    0.000    0.045
+    internvl2-4b                 7    0.192    0.023    0.133
+    llava-next-llama3            7    0.224    0.025    0.134
+
+  [MULTI_LABEL_MCQ] Disaster Scene Recognition:
+    Model                        N    Prec     Rec      F1  SubAcc
+    ----------------------------------------------------------
+    moondream2                   6   1.000   0.417   0.583   0.000
+    blip2-opt-2.7b               6   0.167   0.083   0.111   0.000
+    llava-1.5-7b                 6   1.000   0.417   0.583   0.000
+    qwen-vl-chat                 6   0.581   0.694   0.531   0.000
+    instructblip-vicuna          6   1.000   0.417   0.583   0.000
+    idefics2-8b                  6   1.000   0.417   0.583   0.000
+    internvl2-4b                 6   0.833   0.361   0.500   0.000
+    llava-next-llama3            6   1.000   0.417   0.583   0.000
+
+  [SINGLE_LABEL_MCQ] Disaster Type Recognition:
+    Model                        N   Accuracy
+    ----------------------------------------
+    moondream2                   1      0.000
+    blip2-opt-2.7b               1      0.000
+    llava-1.5-7b                 1      0.000
+    qwen-vl-chat                 1      0.000
+    instructblip-vicuna          1      1.000
+    idefics2-8b                  1      0.000
+    internvl2-4b                 1      0.000
+    llava-next-llama3            1      0.000
+
+  [SINGLE_LABEL_MCQ] Relational Reasoning:
+    Model                        N   Accuracy
+    ----------------------------------------
+    moondream2                   3      0.000
+    blip2-opt-2.7b               3      0.000
+    llava-1.5-7b                 3      0.333
+    qwen-vl-chat                 3      0.000
+    instructblip-vicuna          3      0.000
+    idefics2-8b                  3      0.333
+    internvl2-4b                 3      0.667
+    llava-next-llama3            3      0.000
+
+  [SINGLE_LABEL_MCQ] Road Damage Counting:
+    Model                        N   Accuracy
+    ----------------------------------------
+    moondream2                   6      0.167
+    blip2-opt-2.7b               6      0.167
+    llava-1.5-7b                 6      0.500
+    qwen-vl-chat                 6      0.000
+    instructblip-vicuna          6      0.333
+    idefics2-8b                  6      0.333
+    internvl2-4b                 6      0.333
+    llava-next-llama3            6      0.000
+
+──────────────────────────────────────────────────────────────────────────────────────────
+  SECTION 5: SAMPLE-LEVEL SPOTCHECK (2 samples per track per model)
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  ▸ moondream2:
+    [single_label_mcq] Relational Reasoning
+      Raw: "D"
+      Parsed: ['D'] | GT: ['B'] | acc=0.0
+    [single_label_mcq] Building Damage Counting
+      Raw: "A"
+      Parsed: ['A'] | GT: ['D'] | acc=0.0
+    [multi_label_mcq] Disaster Scene Recognition
+      Raw: "C"
+      Parsed: ['C'] | GT: ['B', 'C'] | P=1.00 R=0.50 F1=0.67
+    [multi_label_mcq] Disaster Bearing Bodies Recogn
+      Raw: "D"
+      Parsed: ['D'] | GT: ['A', 'E', 'G'] | P=0.00 R=0.00 F1=0.00
+    [free_text] Disaster Report
+      Raw: "The image shows a black and white photograph of a damaged area, likely a buildin"
+      GT:  "DISASTER: earthquake
+BUILDING: No buildings are present in t"
+      B1=0.159 RL=0.141
+    [free_text] Disaster Report
+      Raw: "In the image, there is a city with a mix of tall buildings and a road. The city "
+      GT:  "DISASTER: earthquake
+BUILDING: No visible structural damage "
+      B1=0.248 RL=0.171
+
+  ▸ blip2-opt-2.7b:
+    [single_label_mcq] Relational Reasoning
+      Raw: "A"
+      Parsed: ['A'] | GT: ['B'] | acc=0.0
+    [single_label_mcq] Building Damage Counting
+      Raw: "D"
+      Parsed: ['D'] | GT: ['D'] | acc=1.0
+    [multi_label_mcq] Disaster Scene Recognition
+      Raw: "D"
+      Parsed: ['D'] | GT: ['B', 'C'] | P=0.00 R=0.00 F1=0.00
+    [multi_label_mcq] Disaster Bearing Bodies Recogn
+      Raw: "B"
+      Parsed: ['B'] | GT: ['A', 'E', 'G'] | P=0.00 R=0.00 F1=0.00
+    [free_text] Disaster Report
+      Raw: "The image shows a large area of the surface of mars with a large crater in the c"
+      GT:  "DISASTER: earthquake
+BUILDING: No buildings are present in t"
+      B1=0.000 RL=0.099
+    [free_text] Disaster Report
+      Raw: "The damage situation is described in the image below"
+      GT:  "DISASTER: earthquake
+BUILDING: No visible structural damage "
+      B1=0.000 RL=0.068
+
+  ▸ llava-1.5-7b:
+    [single_label_mcq] Relational Reasoning
+      Raw: "E"
+      Parsed: ['E'] | GT: ['B'] | acc=0.0
+    [single_label_mcq] Building Damage Counting
+      Raw: "A"
+      Parsed: ['A'] | GT: ['D'] | acc=0.0
+    [multi_label_mcq] Disaster Scene Recognition
+      Raw: "C"
+      Parsed: ['C'] | GT: ['B', 'C'] | P=1.00 R=0.50 F1=0.67
+    [multi_label_mcq] Disaster Bearing Bodies Recogn
+      Raw: "A"
+      Parsed: ['A'] | GT: ['A', 'E', 'G'] | P=1.00 R=0.33 F1=0.50
+    [free_text] Disaster Report
+      Raw: "In the pre-disaster image, the scene is a calm ocean with a few ripples on the s"
+      GT:  "DISASTER: earthquake
+BUILDING: No buildings are present in t"
+      B1=0.203 RL=0.168
+    [free_text] Disaster Report
+      Raw: "In the pre-disaster image, the city appears to be a bustling urban area with tal"
+      GT:  "DISASTER: earthquake
+BUILDING: No visible structural damage "
+      B1=0.176 RL=0.151
+
+  ▸ qwen-vl-chat:
+    [single_label_mcq] Relational Reasoning
+      Raw: "A. The flooded area in the red box surrounds the partially submerged building in"
+      Parsed: ['A'] | GT: ['B'] | acc=0.0
+    [single_label_mcq] Building Damage Counting
+      Raw: "Based on the satellite image, it is difficult to accurately determine the number"
+      Parsed: ['B'] | GT: ['D'] | acc=0.0
+    [multi_label_mcq] Disaster Scene Recognition
+      Raw: "C. Residential area, D. Industrial area, E. Viaduct, F. Pond, G. Parking, H. Com"
+      Parsed: ['C', 'D', 'E', 'F', 'G', 'H'] | GT: ['B', 'C'] | P=0.17 R=0.50 F1=0.25
+    [multi_label_mcq] Disaster Bearing Bodies Recogn
+      Raw: "D. Coastline"
+      Parsed: ['D'] | GT: ['A', 'E', 'G'] | P=0.00 R=0.00 F1=0.00
+    [free_text] Disaster Report
+      Raw: "I'm sorry, but I cannot provide a comprehensive damage situation based on pre- a"
+      GT:  "DISASTER: earthquake
+BUILDING: No buildings are present in t"
+      B1=0.106 RL=0.141
+    [free_text] Disaster Report
+      Raw: "Based on the pre- and post-disaster images, the damage situation appears to be q"
+      GT:  "DISASTER: earthquake
+BUILDING: No visible structural damage "
+      B1=0.244 RL=0.170
+
+  ▸ instructblip-vicuna:
+    [single_label_mcq] Relational Reasoning
+      Raw: "The correct answer is D. The undamaged road in the red box runs diagonally above"
+      Parsed: ['D'] | GT: ['B'] | acc=0.0
+    [single_label_mcq] Building Damage Counting
+      Raw: "10"
+      Parsed: [] | GT: ['D'] | acc=0.0
+    [multi_label_mcq] Disaster Scene Recognition
+      Raw: "C"
+      Parsed: ['C'] | GT: ['B', 'C'] | P=1.00 R=0.50 F1=0.67
+    [multi_label_mcq] Disaster Bearing Bodies Recogn
+      Raw: "D"
+      Parsed: ['D'] | GT: ['A', 'E', 'G'] | P=0.00 R=0.00 F1=0.00
+    [free_text] Disaster Report
+      Raw: "The image shows a surfboard floating in the ocean, with a person standing on it."
+      GT:  "DISASTER: earthquake
+BUILDING: No buildings are present in t"
+      B1=0.192 RL=0.188
+    [free_text] Disaster Report
+      Raw: "The image shows a satellite view of a city, with a large number of buildings vis"
+      GT:  "DISASTER: earthquake
+BUILDING: No visible structural damage "
+      B1=0.092 RL=0.145
+
+  ▸ idefics2-8b:
+    [single_label_mcq] Relational Reasoning
+      Raw: "E."
+      Parsed: ['E'] | GT: ['B'] | acc=0.0
+    [single_label_mcq] Building Damage Counting
+      Raw: "Answer: E"
+      Parsed: ['E'] | GT: ['D'] | acc=0.0
+    [multi_label_mcq] Disaster Scene Recognition
+      Raw: "Answer: C"
+      Parsed: ['C'] | GT: ['B', 'C'] | P=1.00 R=0.50 F1=0.67
+    [multi_label_mcq] Disaster Bearing Bodies Recogn
+      Raw: "Answer: G"
+      Parsed: ['G'] | GT: ['A', 'E', 'G'] | P=1.00 R=0.33 F1=0.50
+    [free_text] Disaster Report
+      Raw: "The left image is darker than the right image."
+      GT:  "DISASTER: earthquake
+BUILDING: No buildings are present in t"
+      B1=0.000 RL=0.066
+    [free_text] Disaster Report
+      Raw: "There are many buildings."
+      GT:  "DISASTER: earthquake
+BUILDING: No visible structural damage "
+      B1=0.000 RL=0.014
+
+  ▸ internvl2-4b:
+    [single_label_mcq] Relational Reasoning
+      Raw: "B"
+      Parsed: ['B'] | GT: ['B'] | acc=1.0
+    [single_label_mcq] Building Damage Counting
+      Raw: "B"
+      Parsed: ['B'] | GT: ['D'] | acc=0.0
+    [multi_label_mcq] Disaster Scene Recognition
+      Raw: "C"
+      Parsed: ['C'] | GT: ['B', 'C'] | P=1.00 R=0.50 F1=0.67
+    [multi_label_mcq] Disaster Bearing Bodies Recogn
+      Raw: "A"
+      Parsed: ['A'] | GT: ['A', 'E', 'G'] | P=1.00 R=0.33 F1=0.50
+    [free_text] Disaster Report
+      Raw: "To describe a comprehensive damage situation based on pre- and post-disaster ima"
+      GT:  "DISASTER: earthquake
+BUILDING: No buildings are present in t"
+      B1=0.141 RL=0.197
+    [free_text] Disaster Report
+      Raw: "To describe a comprehensive damage situation based on pre- and post-disaster ima"
+      GT:  "DISASTER: earthquake
+BUILDING: No visible structural damage "
+      B1=0.210 RL=0.208
+
+  ▸ llava-next-llama3:
+    [single_label_mcq] Relational Reasoning
+      Raw: "E"
+      Parsed: ['E'] | GT: ['B'] | acc=0.0
+    [single_label_mcq] Building Damage Counting
+      Raw: "A"
+      Parsed: ['A'] | GT: ['D'] | acc=0.0
+    [multi_label_mcq] Disaster Scene Recognition
+      Raw: "C"
+      Parsed: ['C'] | GT: ['B', 'C'] | P=1.00 R=0.50 F1=0.67
+    [multi_label_mcq] Disaster Bearing Bodies Recogn
+      Raw: "A"
+      Parsed: ['A'] | GT: ['A', 'E', 'G'] | P=1.00 R=0.33 F1=0.50
+    [free_text] Disaster Report
+      Raw: "The image you've provided appears to be a digital or artistic representation of "
+      GT:  "DISASTER: earthquake
+BUILDING: No buildings are present in t"
+      B1=0.180 RL=0.144
+    [free_text] Disaster Report
+      Raw: "The image you've provided appears to be an aerial or satellite view of a residen"
+      GT:  "DISASTER: earthquake
+BUILDING: No visible structural damage "
+      B1=0.209 RL=0.117
+
+══════════════════════════════════════════════════════════════════════════════════════════
+  SECTION 6: FINDINGS & RECOMMENDATIONS
+══════════════════════════════════════════════════════════════════════════════════════════
+
+  Parser Stats:
+    Total MCQ samples across all models: 288
+    Empty parses (no letter found):      8 (2.8%)
+    Of those, raw number outputs:        5
+
+  ⚠ RECOMMENDATION 1: Add number-to-letter fallback
+    Some models (esp. instructblip) output the raw value '10' instead of 'C'.
+    We should add a fallback that matches the number against the options list.
+
+  ⚠ RECOMMENDATION 2: Review deep-extraction cases
+    When models output long prose, the parser extracts the first letter found,
+    which may be a word like 'A' or 'B' in a sentence, not the intended answer.
+
+  ✅ FINDING: All recomputed MCQ metrics match stored values
+  ✅ FINDING: Evaluation tracks are correctly assigned per task type
+  ✅ FINDING: Free-text BLEU/ROUGE computations produce reasonable values
+

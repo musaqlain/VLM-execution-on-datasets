@@ -1,0 +1,76 @@
+/home/aipmu/Datasets for VLM/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+[RSVLM-QA] Loading from /home/aipmu/Datasets for VLM/Raw dataset files/RSVLM-QA.jsonl ...
+[RSVLM-QA] Loaded 700 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  Qwen/Qwen-VL-Chat  …
+Loading checkpoint shards:   0%|          | 0/10 [00:00<?, ?it/s]Loading checkpoint shards:  10%|█         | 1/10 [00:02<00:21,  2.39s/it]Loading checkpoint shards:  20%|██        | 2/10 [00:04<00:16,  2.12s/it]Loading checkpoint shards:  30%|███       | 3/10 [00:05<00:13,  1.87s/it]Loading checkpoint shards:  40%|████      | 4/10 [00:07<00:10,  1.72s/it]Loading checkpoint shards:  50%|█████     | 5/10 [00:09<00:08,  1.69s/it]Loading checkpoint shards:  60%|██████    | 6/10 [00:10<00:06,  1.69s/it]Loading checkpoint shards:  70%|███████   | 7/10 [00:12<00:05,  1.68s/it]Loading checkpoint shards:  80%|████████  | 8/10 [00:14<00:03,  1.78s/it]Loading checkpoint shards:  90%|█████████ | 9/10 [00:17<00:02,  2.12s/it]Loading checkpoint shards: 100%|██████████| 10/10 [00:19<00:00,  2.02s/it]Loading checkpoint shards: 100%|██████████| 10/10 [00:19<00:00,  1.90s/it]
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+  [20/700]  0.7 min elapsed
+  [40/700]  1.4 min elapsed
+  [60/700]  2.1 min elapsed
+  [80/700]  3.0 min elapsed
+  [100/700]  3.7 min elapsed
+  [120/700]  4.5 min elapsed
+  [140/700]  5.0 min elapsed
+  [160/700]  5.7 min elapsed
+  [180/700]  6.5 min elapsed
+  [200/700]  7.2 min elapsed
+  [220/700]  7.8 min elapsed
+  [240/700]  8.4 min elapsed
+  [260/700]  9.1 min elapsed
+  [280/700]  9.7 min elapsed
+  [300/700]  10.5 min elapsed
+  [320/700]  11.1 min elapsed
+  [340/700]  11.8 min elapsed
+  [360/700]  12.5 min elapsed
+  [380/700]  13.2 min elapsed
+  [400/700]  13.9 min elapsed
+  [420/700]  14.6 min elapsed
+  [440/700]  15.2 min elapsed
+  [460/700]  15.8 min elapsed
+  [480/700]  16.4 min elapsed
+  [500/700]  17.2 min elapsed
+  [520/700]  17.8 min elapsed
+  [540/700]  18.4 min elapsed
+  [560/700]  19.0 min elapsed
+  [580/700]  19.6 min elapsed
+  [600/700]  20.2 min elapsed
+  [620/700]  20.8 min elapsed
+  [640/700]  21.4 min elapsed
+  [660/700]  22.0 min elapsed
+  [680/700]  22.8 min elapsed
+  [700/700]  23.4 min elapsed
+
+✅ Inference done – 700 samples in 23.4 min
+
+==================================================
+RSVLM-QA  ▸  qwen-vl-chat
+==================================================
+  exact_match    : 0.0086
+  bleu1          : 0.3466
+  bleu4          : 0.1617
+  rougeL         : 0.3941
+
+Per question-type breakdown:
+  spatial               EM=0.010  BLEU1=0.455  ROUGE-L=0.493
+  object                EM=0.000  BLEU1=0.320  ROUGE-L=0.297
+  overall               EM=0.000  BLEU1=0.324  ROUGE-L=0.354
+  quantity              EM=0.040  BLEU1=0.392  ROUGE-L=0.436
+  count                 EM=0.000  BLEU1=0.294  ROUGE-L=0.396
+  presence              EM=0.000  BLEU1=0.333  ROUGE-L=0.442
+  caption               EM=0.000  BLEU1=0.136  ROUGE-L=0.168
+  overall_feature       EM=0.000  BLEU1=0.302  ROUGE-L=0.366
+  quantity_proportion   EM=0.062  BLEU1=0.372  ROUGE-L=0.429
+  objects               EM=0.000  BLEU1=0.366  ROUGE-L=0.305
+  overall_features      EM=0.000  BLEU1=0.285  ROUGE-L=0.316
+  overall features      EM=0.000  BLEU1=0.236  ROUGE-L=0.302
+  quantities or proportions  EM=0.000  BLEU1=0.470  ROUGE-L=0.558
+  quantities_proportions  EM=0.500  BLEU1=0.750  ROUGE-L=0.750
+  proportions           EM=0.000  BLEU1=0.153  ROUGE-L=0.222
+  quantity/proportion   EM=0.000  BLEU1=0.672  ROUGE-L=0.759
+  quantity or proportion  EM=0.000  BLEU1=0.167  ROUGE-L=0.169
+  features              EM=0.000  BLEU1=0.555  ROUGE-L=0.480
+  quantity_or_proportion  EM=0.000  BLEU1=0.375  ROUGE-L=0.500
+
+💾 Saved → results/rsvlmqa_qwen-vl-chat.json

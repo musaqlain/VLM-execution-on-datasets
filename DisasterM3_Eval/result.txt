@@ -1,0 +1,633 @@
+(vlm_env_disasterm3) aipmu@DESKTOP-JIFPMEU:~/Datasets for VLM/DisasterM3_Eval$ bash run_all_test.sh
+✅ Loaded HF_TOKEN from .env
+Python: /home/aipmu/Datasets for VLM/DisasterM3_Eval/vlm_env_disasterm3/bin/python3
+PyTorch CUDA: True
+
+Starting 5-sample pipeline test for 8 VLMs...
+
+===========================================
+ [1/8] Testing: moondream2
+===========================================
+
+
+==================================================
+  Model:      moondream2
+  HF ID:      vikhyatk/moondream2
+  Samples:    5
+  HF_TOKEN:   set (hf_pMawn...)
+  GPU:        NVIDIA RTX A4500
+  VRAM Free:  20.2 GB
+==================================================
+[Dataset] Loading DisasterM3 Bench from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3_Bench/benchmark_release.json ...
+[Dataset] Loaded 5 QA pairs (skipped 0 missing images).
+  ⏳ Loading vikhyatk/moondream2 ...
+  🔑 Using HF_TOKEN: hf_pMawn...
+
+--- Sample 1/5 ---
+  Image: bata_explosion_post_0.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What essential land-cover objects appear damaged in this disaster zone?
+Options: A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space groun
+  Pred:  B
+  GT:    B, E, F, G.
+
+--- Sample 2/5 ---
+  Image: bata_explosion_sar_post_0.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What categories of objects have sustained damage in the affected area?
+Options: A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space ground
+  Pred:  B
+  GT:    B, E, F, G.
+
+--- Sample 3/5 ---
+  Image: bata_explosion_post_1.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which critical objects exhibit disaster-related damage?
+Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. B
+  Pred:  D
+  GT:    E, F, G, H.
+
+--- Sample 4/5 ---
+  Image: bata_explosion_sar_post_1.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which critical objects exhibit disaster-related damage?
+Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. B
+  Pred:  B
+  GT:    E, F, G, H.
+
+--- Sample 5/5 ---
+  Image: bata_explosion_post_2.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which key objects show visible impact from this disaster event?
+Options: A. Dams, B. Open-space ground, C. Stadiums, D. Storage tank, E. Forest, F. Ro
+  Pred:  B
+  GT:    B, E, F, G, H.
+
+✅ Inference done — 5 samples in 1.6s (0 errors)
+
+────────────────────────────────────────
+  Metrics for moondream2:
+────────────────────────────────────────
+  exact_match    : 0.0000
+  bleu1          : 0.0236
+  bleu4          : 0.0140
+  rougeL         : 0.2267
+
+💾 Saved → /home/aipmu/Datasets for VLM/DisasterM3_Eval/results/test_moondream2.json
+  🧹 VRAM cleared.
+✅ moondream2 passed
+
+Waiting 5 seconds for VRAM cleanup...
+===========================================
+ [2/8] Testing: blip2-opt-2.7b
+===========================================
+
+==================================================
+  Model:      blip2-opt-2.7b
+  HF ID:      Salesforce/blip2-opt-2.7b
+  Samples:    5
+  HF_TOKEN:   set (hf_pMawn...)
+  GPU:        NVIDIA RTX A4500
+  VRAM Free:  20.2 GB
+==================================================
+[Dataset] Loading DisasterM3 Bench from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3_Bench/benchmark_release.json ...
+[Dataset] Loaded 5 QA pairs (skipped 0 missing images).
+  ⏳ Loading Salesforce/blip2-opt-2.7b ...
+  🔑 Using HF_TOKEN: hf_pMawn...
+Some kwargs in processor config are unused and will not have any effect: num_query_tokens.
+Loading checkpoint shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:07<00:00,  3.56s/it]
+Both `max_new_tokens` (=128) and `max_length`(=51) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+
+--- Sample 1/5 ---
+  Image: bata_explosion_post_0.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What essential land-cover objects appear damaged in this disaster zone?
+Options: A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space groun
+  Pred:  A
+  GT:    B, E, F, G.
+Both `max_new_tokens` (=128) and `max_length`(=51) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+
+--- Sample 2/5 ---
+  Image: bata_explosion_sar_post_0.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What categories of objects have sustained damage in the affected area?
+Options: A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space ground
+  Pred:  A
+  GT:    B, E, F, G.
+Both `max_new_tokens` (=128) and `max_length`(=51) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+
+--- Sample 3/5 ---
+  Image: bata_explosion_post_1.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which critical objects exhibit disaster-related damage?
+Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. B
+  Pred:  A
+  GT:    E, F, G, H.
+Both `max_new_tokens` (=128) and `max_length`(=51) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+
+--- Sample 4/5 ---
+  Image: bata_explosion_sar_post_1.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which critical objects exhibit disaster-related damage?
+Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. B
+  Pred:  A
+  GT:    E, F, G, H.
+Both `max_new_tokens` (=128) and `max_length`(=51) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+
+--- Sample 5/5 ---
+  Image: bata_explosion_post_2.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which key objects show visible impact from this disaster event?
+Options: A. Dams, B. Open-space ground, C. Stadiums, D. Storage tank, E. Forest, F. Ro
+  Pred:  A
+  GT:    B, E, F, G, H.
+
+✅ Inference done — 5 samples in 1.3s (0 errors)
+
+────────────────────────────────────────
+  Metrics for blip2-opt-2.7b:
+────────────────────────────────────────
+  exact_match    : 0.0000
+  bleu1          : 0.0000
+  bleu4          : 0.0000
+  rougeL         : 0.0000
+
+💾 Saved → /home/aipmu/Datasets for VLM/DisasterM3_Eval/results/test_blip2-opt-2.7b.json
+  🧹 VRAM cleared.
+✅ blip2-opt-2.7b passed
+
+Waiting 5 seconds for VRAM cleanup...
+===========================================
+ [3/8] Testing: llava-1.5-7b
+===========================================
+
+==================================================
+  Model:      llava-1.5-7b
+  HF ID:      llava-hf/llava-1.5-7b-hf
+  Samples:    5
+  HF_TOKEN:   set (hf_pMawn...)
+  GPU:        NVIDIA RTX A4500
+  VRAM Free:  20.2 GB
+==================================================
+[Dataset] Loading DisasterM3 Bench from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3_Bench/benchmark_release.json ...
+[Dataset] Loaded 5 QA pairs (skipped 0 missing images).
+  ⏳ Loading llava-hf/llava-1.5-7b-hf ...
+  🔑 Using HF_TOKEN: hf_pMawn...
+Some kwargs in processor config are unused and will not have any effect: image_token, vision_feature_select_strategy, num_additional_image_tokens, patch_size.
+Loading checkpoint shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:11<00:00,  3.82s/it]
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+
+--- Sample 1/5 ---
+  Image: bata_explosion_post_0.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What essential land-cover objects appear damaged in this disaster zone?
+Options: A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space groun
+  Pred:  B
+  GT:    B, E, F, G.
+
+--- Sample 2/5 ---
+  Image: bata_explosion_sar_post_0.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What categories of objects have sustained damage in the affected area?
+Options: A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space ground
+  Pred:  B
+  GT:    B, E, F, G.
+
+--- Sample 3/5 ---
+  Image: bata_explosion_post_1.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which critical objects exhibit disaster-related damage?
+Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. B
+  Pred:  F
+  GT:    E, F, G, H.
+
+--- Sample 4/5 ---
+  Image: bata_explosion_sar_post_1.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which critical objects exhibit disaster-related damage?
+Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. B
+  Pred:  B
+  GT:    E, F, G, H.
+
+--- Sample 5/5 ---
+  Image: bata_explosion_post_2.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which key objects show visible impact from this disaster event?
+Options: A. Dams, B. Open-space ground, C. Stadiums, D. Storage tank, E. Forest, F. Ro
+  Pred:  H
+  GT:    B, E, F, G, H.
+
+✅ Inference done — 5 samples in 2.4s (0 errors)
+
+────────────────────────────────────────
+  Metrics for llava-1.5-7b:
+────────────────────────────────────────
+  exact_match    : 0.0000
+  bleu1          : 0.0335
+  bleu4          : 0.0199
+  rougeL         : 0.3067
+
+💾 Saved → /home/aipmu/Datasets for VLM/DisasterM3_Eval/results/test_llava-1.5-7b.json
+  🧹 VRAM cleared.
+✅ llava-1.5-7b passed
+
+Waiting 5 seconds for VRAM cleanup...
+===========================================
+ [4/8] Testing: qwen-vl-chat
+===========================================
+
+==================================================
+  Model:      qwen-vl-chat
+  HF ID:      Qwen/Qwen-VL-Chat
+  Samples:    5
+  HF_TOKEN:   set (hf_pMawn...)
+  GPU:        NVIDIA RTX A4500
+  VRAM Free:  20.2 GB
+==================================================
+[Dataset] Loading DisasterM3 Bench from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3_Bench/benchmark_release.json ...
+[Dataset] Loaded 5 QA pairs (skipped 0 missing images).
+  ⏳ Loading Qwen/Qwen-VL-Chat ...
+  🔑 Using HF_TOKEN: hf_pMawn...
+/home/aipmu/Datasets for VLM/DisasterM3_Eval/vlm_env_disasterm3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+The model is automatically converting to bf16 for faster inference. If you want to disable the automatic precision, please manually add bf16/fp16/fp32=True to "AutoModelForCausalLM.from_pretrained".
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:17<00:00,  1.73s/it]
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+
+--- Sample 1/5 ---
+  Image: bata_explosion_post_0.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What essential land-cover objects appear damaged in this disaster zone?
+Options: A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space groun
+  Pred:  B. Buildings
+  GT:    B, E, F, G.
+
+--- Sample 2/5 ---
+  Image: bata_explosion_sar_post_0.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What categories of objects have sustained damage in the affected area?
+Options: A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space ground
+  Pred:  B. Buildings
+  GT:    B, E, F, G.
+
+--- Sample 3/5 ---
+  Image: bata_explosion_post_1.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which critical objects exhibit disaster-related damage?
+Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. B
+  Pred:  F. Buildings
+  GT:    E, F, G, H.
+
+--- Sample 4/5 ---
+  Image: bata_explosion_sar_post_1.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which critical objects exhibit disaster-related damage?
+Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. B
+  Pred:  F. Buildings
+  GT:    E, F, G, H.
+
+--- Sample 5/5 ---
+  Image: bata_explosion_post_2.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which key objects show visible impact from this disaster event?
+Options: A. Dams, B. Open-space ground, C. Stadiums, D. Storage tank, E. Forest, F. Ro
+  Pred:  E. Forest
+  GT:    B, E, F, G, H.
+
+✅ Inference done — 5 samples in 3.0s (0 errors)
+
+────────────────────────────────────────
+  Metrics for qwen-vl-chat:
+────────────────────────────────────────
+  exact_match    : 0.0000
+  bleu1          : 0.1695
+  bleu4          : 0.1250
+  rougeL         : 0.3238
+
+💾 Saved → /home/aipmu/Datasets for VLM/DisasterM3_Eval/results/test_qwen-vl-chat.json
+  🧹 VRAM cleared.
+✅ qwen-vl-chat passed
+
+Waiting 5 seconds for VRAM cleanup...
+===========================================
+ [5/8] Testing: instructblip-vicuna
+===========================================
+
+==================================================
+  Model:      instructblip-vicuna
+  HF ID:      Salesforce/instructblip-vicuna-7b
+  Samples:    5
+  HF_TOKEN:   set (hf_pMawn...)
+  GPU:        NVIDIA RTX A4500
+  VRAM Free:  20.2 GB
+==================================================
+[Dataset] Loading DisasterM3 Bench from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3_Bench/benchmark_release.json ...
+[Dataset] Loaded 5 QA pairs (skipped 0 missing images).
+  ⏳ Loading Salesforce/instructblip-vicuna-7b ...
+  🔑 Using HF_TOKEN: hf_pMawn...
+Some kwargs in processor config are unused and will not have any effect: num_query_tokens.
+The model weights are not tied. Please use the `tie_weights` method before using the `infer_auto_device` function.
+Loading checkpoint shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:13<00:00,  3.37s/it]
+Both `max_new_tokens` (=128) and `max_length`(=51) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+
+--- Sample 1/5 ---
+  Image: bata_explosion_post_0.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What essential land-cover objects appear damaged in this disaster zone?
+Options: A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space groun
+  Pred:  B
+  GT:    B, E, F, G.
+Both `max_new_tokens` (=128) and `max_length`(=51) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+
+--- Sample 2/5 ---
+  Image: bata_explosion_sar_post_0.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What categories of objects have sustained damage in the affected area?
+Options: A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space ground
+  Pred:  D
+  GT:    B, E, F, G.
+Both `max_new_tokens` (=128) and `max_length`(=51) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+
+--- Sample 3/5 ---
+  Image: bata_explosion_post_1.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which critical objects exhibit disaster-related damage?
+Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. B
+  Pred:  G
+  GT:    E, F, G, H.
+Both `max_new_tokens` (=128) and `max_length`(=51) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+
+--- Sample 4/5 ---
+  Image: bata_explosion_sar_post_1.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which critical objects exhibit disaster-related damage?
+Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. B
+  Pred:  B
+  GT:    E, F, G, H.
+Both `max_new_tokens` (=128) and `max_length`(=51) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+
+--- Sample 5/5 ---
+  Image: bata_explosion_post_2.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which key objects show visible impact from this disaster event?
+Options: A. Dams, B. Open-space ground, C. Stadiums, D. Storage tank, E. Forest, F. Ro
+  Pred:  B
+  GT:    B, E, F, G, H.
+
+✅ Inference done — 5 samples in 1.7s (0 errors)
+
+────────────────────────────────────────
+  Metrics for instructblip-vicuna:
+────────────────────────────────────────
+  exact_match    : 0.0000
+  bleu1          : 0.0236
+  bleu4          : 0.0140
+  rougeL         : 0.2267
+
+💾 Saved → /home/aipmu/Datasets for VLM/DisasterM3_Eval/results/test_instructblip-vicuna.json
+  🧹 VRAM cleared.
+✅ instructblip-vicuna passed
+
+Waiting 5 seconds for VRAM cleanup...
+===========================================
+ [6/8] Testing: idefics2-8b
+===========================================
+
+==================================================
+  Model:      idefics2-8b
+  HF ID:      HuggingFaceM4/idefics2-8b
+  Samples:    5
+  HF_TOKEN:   set (hf_pMawn...)
+  GPU:        NVIDIA RTX A4500
+  VRAM Free:  20.2 GB
+==================================================
+[Dataset] Loading DisasterM3 Bench from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3_Bench/benchmark_release.json ...
+[Dataset] Loaded 5 QA pairs (skipped 0 missing images).
+  ⏳ Loading HuggingFaceM4/idefics2-8b ...
+  🔑 Using HF_TOKEN: hf_pMawn...
+Chat templates should be in a 'chat_template.json' file but found key='chat_template' in the processor's config. Make sure to move your template to its own file.
+Loading checkpoint shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:14<00:00,  2.07s/it]
+
+--- Sample 1/5 ---
+  Image: bata_explosion_post_0.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What essential land-cover objects appear damaged in this disaster zone?
+Options: A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space groun
+  Pred:  Answer: B
+  GT:    B, E, F, G.
+
+--- Sample 2/5 ---
+  Image: bata_explosion_sar_post_0.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What categories of objects have sustained damage in the affected area?
+Options: A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space ground
+  Pred:  Answer: B
+  GT:    B, E, F, G.
+
+--- Sample 3/5 ---
+  Image: bata_explosion_post_1.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which critical objects exhibit disaster-related damage?
+Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. B
+  Pred:  Answer: F
+  GT:    E, F, G, H.
+
+--- Sample 4/5 ---
+  Image: bata_explosion_sar_post_1.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which critical objects exhibit disaster-related damage?
+Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. B
+  Pred:  Answer: F
+  GT:    E, F, G, H.
+
+--- Sample 5/5 ---
+  Image: bata_explosion_post_2.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which key objects show visible impact from this disaster event?
+Options: A. Dams, B. Open-space ground, C. Stadiums, D. Storage tank, E. Forest, F. Ro
+  Pred:  Answer: H
+  GT:    B, E, F, G, H.
+
+✅ Inference done — 5 samples in 207.1s (0 errors)
+
+────────────────────────────────────────
+  Metrics for idefics2-8b:
+────────────────────────────────────────
+  exact_match    : 0.0000
+  bleu1          : 0.1695
+  bleu4          : 0.1250
+  rougeL         : 0.3238
+
+💾 Saved → /home/aipmu/Datasets for VLM/DisasterM3_Eval/results/test_idefics2-8b.json
+  🧹 VRAM cleared.
+✅ idefics2-8b passed
+
+Waiting 5 seconds for VRAM cleanup...
+===========================================
+ [7/8] Testing: internvl2-4b
+===========================================
+
+==================================================
+  Model:      internvl2-4b
+  HF ID:      OpenGVLab/InternVL2-4B
+  Samples:    5
+  HF_TOKEN:   set (hf_pMawn...)
+  GPU:        NVIDIA RTX A4500
+  VRAM Free:  20.2 GB
+==================================================
+[Dataset] Loading DisasterM3 Bench from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3_Bench/benchmark_release.json ...
+[Dataset] Loaded 5 QA pairs (skipped 0 missing images).
+  ⏳ Loading OpenGVLab/InternVL2-4B ...
+  🔑 Using HF_TOKEN: hf_pMawn...
+FlashAttention2 is not installed.
+`flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+Current `flash-attenton` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:07<00:00,  3.84s/it]
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+You are not running the flash-attention implementation, expect numerical differences.
+
+--- Sample 1/5 ---
+  Image: bata_explosion_post_0.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What essential land-cover objects appear damaged in this disaster zone?
+Options: A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space groun
+  Pred:  B
+  GT:    B, E, F, G.
+
+--- Sample 2/5 ---
+  Image: bata_explosion_sar_post_0.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What categories of objects have sustained damage in the affected area?
+Options: A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space ground
+  Pred:  B. Buildings
+  GT:    B, E, F, G.
+
+--- Sample 3/5 ---
+  Image: bata_explosion_post_1.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which critical objects exhibit disaster-related damage?
+Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. B
+  Pred:  D. Stadiums
+  GT:    E, F, G, H.
+
+--- Sample 4/5 ---
+  Image: bata_explosion_sar_post_1.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which critical objects exhibit disaster-related damage?
+Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. B
+  Pred:  B
+  GT:    E, F, G, H.
+
+--- Sample 5/5 ---
+  Image: bata_explosion_post_2.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which key objects show visible impact from this disaster event?
+Options: A. Dams, B. Open-space ground, C. Stadiums, D. Storage tank, E. Forest, F. Ro
+  Pred:  B. Open-space ground
+  GT:    B, E, F, G, H.
+
+✅ Inference done — 5 samples in 2.9s (0 errors)
+
+────────────────────────────────────────
+  Metrics for internvl2-4b:
+────────────────────────────────────────
+  exact_match    : 0.0000
+  bleu1          : 0.0810
+  bleu4          : 0.0606
+  rougeL         : 0.1967
+
+💾 Saved → /home/aipmu/Datasets for VLM/DisasterM3_Eval/results/test_internvl2-4b.json
+  🧹 VRAM cleared.
+✅ internvl2-4b passed
+
+Waiting 5 seconds for VRAM cleanup...
+===========================================
+ [8/8] Testing: llava-next-llama3
+===========================================
+
+==================================================
+  Model:      llava-next-llama3
+  HF ID:      llava-hf/llama3-llava-next-8b-hf
+  Samples:    5
+  HF_TOKEN:   set (hf_pMawn...)
+  GPU:        NVIDIA RTX A4500
+  VRAM Free:  20.2 GB
+==================================================
+[Dataset] Loading DisasterM3 Bench from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3_Bench/benchmark_release.json ...
+[Dataset] Loaded 5 QA pairs (skipped 0 missing images).
+  ⏳ Loading llava-hf/llama3-llava-next-8b-hf ...
+  🔑 Using HF_TOKEN: hf_pMawn...
+Some kwargs in processor config are unused and will not have any effect: patch_size, num_additional_image_tokens, vision_feature_select_strategy, image_token.
+Loading checkpoint shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:15<00:00,  3.78s/it]
+Setting `pad_token_id` to `eos_token_id`:128009 for open-end generation.
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+
+--- Sample 1/5 ---
+  Image: bata_explosion_post_0.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What essential land-cover objects appear damaged in this disaster zone?
+Options: A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space groun
+  Pred:  B
+  GT:    B, E, F, G.
+Setting `pad_token_id` to `eos_token_id`:128009 for open-end generation.
+
+--- Sample 2/5 ---
+  Image: bata_explosion_sar_post_0.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What categories of objects have sustained damage in the affected area?
+Options: A. Stadiums, B. Buildings, C. Coastline, D. Dams, E. Open-space ground
+  Pred:  B
+  GT:    B, E, F, G.
+Setting `pad_token_id` to `eos_token_id`:128009 for open-end generation.
+
+--- Sample 3/5 ---
+  Image: bata_explosion_post_1.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which critical objects exhibit disaster-related damage?
+Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. B
+  Pred:  F
+  GT:    E, F, G, H.
+Setting `pad_token_id` to `eos_token_id`:128009 for open-end generation.
+
+--- Sample 4/5 ---
+  Image: bata_explosion_sar_post_1.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which critical objects exhibit disaster-related damage?
+Options: A. Port facilities, B. Storage tank, C. Dams, D. Stadiums, E. Open-space ground, F. B
+  Pred:  C
+  GT:    E, F, G, H.
+Setting `pad_token_id` to `eos_token_id`:128009 for open-end generation.
+
+--- Sample 5/5 ---
+  Image: bata_explosion_post_2.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     Which key objects show visible impact from this disaster event?
+Options: A. Dams, B. Open-space ground, C. Stadiums, D. Storage tank, E. Forest, F. Ro
+  Pred:  H
+  GT:    B, E, F, G, H.
+
+✅ Inference done — 5 samples in 8.1s (0 errors)
+
+────────────────────────────────────────
+  Metrics for llava-next-llama3:
+────────────────────────────────────────
+  exact_match    : 0.0000
+  bleu1          : 0.0335
+  bleu4          : 0.0199
+  rougeL         : 0.3067
+
+💾 Saved → /home/aipmu/Datasets for VLM/DisasterM3_Eval/results/test_llava-next-llama3.json
+  🧹 VRAM cleared.
+✅ llava-next-llama3 passed
+
+Waiting 5 seconds for VRAM cleanup...
+
+===========================================
+ SUMMARY: 8/8 models passed
+===========================================
+✅ All 8 models tested successfully!
+(vlm_env_disasterm3) aipmu@DESKTOP-JIFPMEU:~/Datasets for VLM/DisasterM3_Eval$
+(vlm_env_disasterm3) aipmu@DESKTOP-JIFPMEU:~/Datasets for VLM/DisasterM3_Eval$
+

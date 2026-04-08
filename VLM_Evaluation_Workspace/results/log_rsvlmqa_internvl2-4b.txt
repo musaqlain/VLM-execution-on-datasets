@@ -1,0 +1,81 @@
+/home/aipmu/Datasets for VLM/VLM_Evaluation_Workspace/vlm_env_main/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+`flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+Current `flash-attenton` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+[RSVLM-QA] Loading from /home/aipmu/Datasets for VLM/Raw dataset files/RSVLM-QA.jsonl ...
+[RSVLM-QA] Loaded 700 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  OpenGVLab/InternVL2-4B  …
+FlashAttention2 is not installed.
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:06<00:06,  6.70s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:12<00:00,  5.89s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:12<00:00,  6.01s/it]
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+You are not running the flash-attention implementation, expect numerical differences.
+  [20/700]  1.4 min elapsed
+  [40/700]  2.6 min elapsed
+  [60/700]  3.9 min elapsed
+  [80/700]  5.4 min elapsed
+  [100/700]  6.5 min elapsed
+  [120/700]  7.9 min elapsed
+  [140/700]  9.2 min elapsed
+  [160/700]  10.7 min elapsed
+  [180/700]  11.9 min elapsed
+  [200/700]  13.2 min elapsed
+  [220/700]  14.3 min elapsed
+  [240/700]  15.5 min elapsed
+  [260/700]  17.1 min elapsed
+  [280/700]  18.2 min elapsed
+  [300/700]  19.4 min elapsed
+  [320/700]  20.5 min elapsed
+  [340/700]  21.7 min elapsed
+  [360/700]  23.0 min elapsed
+  [380/700]  24.3 min elapsed
+  [400/700]  25.5 min elapsed
+  [420/700]  26.6 min elapsed
+  [440/700]  28.1 min elapsed
+  [460/700]  29.2 min elapsed
+  [480/700]  30.5 min elapsed
+  [500/700]  31.8 min elapsed
+  [520/700]  33.2 min elapsed
+  [540/700]  34.3 min elapsed
+  [560/700]  35.5 min elapsed
+  [580/700]  36.6 min elapsed
+  [600/700]  37.7 min elapsed
+  [620/700]  38.8 min elapsed
+  [640/700]  40.0 min elapsed
+  [660/700]  41.2 min elapsed
+  [680/700]  42.8 min elapsed
+  [700/700]  43.9 min elapsed
+
+✅ Inference done – 700 samples in 43.9 min
+
+==================================================
+RSVLM-QA  ▸  internvl2-4b
+==================================================
+  exact_match    : 0.0000
+  bleu1          : 0.2867
+  bleu4          : 0.1193
+  rougeL         : 0.3207
+
+Per question-type breakdown:
+  spatial               EM=0.000  BLEU1=0.382  ROUGE-L=0.436
+  object                EM=0.000  BLEU1=0.197  ROUGE-L=0.229
+  overall               EM=0.000  BLEU1=0.303  ROUGE-L=0.350
+  quantity              EM=0.000  BLEU1=0.198  ROUGE-L=0.257
+  count                 EM=0.000  BLEU1=0.152  ROUGE-L=0.168
+  presence              EM=0.000  BLEU1=0.191  ROUGE-L=0.306
+  caption               EM=0.000  BLEU1=0.363  ROUGE-L=0.232
+  overall_feature       EM=0.000  BLEU1=0.338  ROUGE-L=0.409
+  quantity_proportion   EM=0.000  BLEU1=0.194  ROUGE-L=0.261
+  objects               EM=0.000  BLEU1=0.165  ROUGE-L=0.202
+  overall_features      EM=0.000  BLEU1=0.288  ROUGE-L=0.316
+  overall features      EM=0.000  BLEU1=0.331  ROUGE-L=0.361
+  quantities or proportions  EM=0.000  BLEU1=0.107  ROUGE-L=0.162
+  quantities_proportions  EM=0.000  BLEU1=0.211  ROUGE-L=0.273
+  proportions           EM=0.000  BLEU1=0.359  ROUGE-L=0.333
+  quantity/proportion   EM=0.000  BLEU1=0.141  ROUGE-L=0.255
+  quantity or proportion  EM=0.000  BLEU1=0.193  ROUGE-L=0.270
+  features              EM=0.000  BLEU1=0.575  ROUGE-L=0.597
+  quantity_or_proportion  EM=0.000  BLEU1=0.303  ROUGE-L=0.400
+
+💾 Saved → results/rsvlmqa_internvl2-4b.json

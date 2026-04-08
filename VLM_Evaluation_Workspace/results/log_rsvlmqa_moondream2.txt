@@ -1,0 +1,71 @@
+[RSVLM-QA] Loading from /home/aipmu/Datasets for VLM/Raw dataset files/RSVLM-QA.jsonl ...
+[RSVLM-QA] Loaded 700 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  vikhyatk/moondream2  …
+  [20/700]  0.4 min elapsed
+  [40/700]  0.8 min elapsed
+  [60/700]  1.2 min elapsed
+  [80/700]  1.7 min elapsed
+  [100/700]  2.2 min elapsed
+  [120/700]  2.5 min elapsed
+  [140/700]  2.9 min elapsed
+  [160/700]  3.4 min elapsed
+  [180/700]  3.8 min elapsed
+  [200/700]  4.1 min elapsed
+  [220/700]  4.5 min elapsed
+  [240/700]  5.0 min elapsed
+  [260/700]  5.4 min elapsed
+  [280/700]  5.8 min elapsed
+  [300/700]  6.2 min elapsed
+  [320/700]  6.6 min elapsed
+  [340/700]  7.0 min elapsed
+  [360/700]  7.4 min elapsed
+  [380/700]  7.8 min elapsed
+  [400/700]  8.2 min elapsed
+  [420/700]  8.6 min elapsed
+  [440/700]  9.2 min elapsed
+  [460/700]  9.5 min elapsed
+  [480/700]  9.9 min elapsed
+  [500/700]  10.3 min elapsed
+  [520/700]  10.6 min elapsed
+  [540/700]  11.0 min elapsed
+  [560/700]  11.3 min elapsed
+  [580/700]  11.7 min elapsed
+  [600/700]  12.0 min elapsed
+  [620/700]  12.3 min elapsed
+  [640/700]  12.8 min elapsed
+  [660/700]  13.2 min elapsed
+  [680/700]  13.5 min elapsed
+  [700/700]  13.9 min elapsed
+
+✅ Inference done – 700 samples in 13.9 min
+
+==================================================
+RSVLM-QA  ▸  moondream2
+==================================================
+  exact_match    : 0.0014
+  bleu1          : 0.3029
+  bleu4          : 0.1427
+  rougeL         : 0.3661
+
+Per question-type breakdown:
+  spatial               EM=0.000  BLEU1=0.383  ROUGE-L=0.429
+  object                EM=0.000  BLEU1=0.227  ROUGE-L=0.227
+  overall               EM=0.000  BLEU1=0.323  ROUGE-L=0.349
+  quantity              EM=0.000  BLEU1=0.313  ROUGE-L=0.369
+  count                 EM=0.000  BLEU1=0.384  ROUGE-L=0.480
+  presence              EM=0.000  BLEU1=0.279  ROUGE-L=0.411
+  caption               EM=0.000  BLEU1=0.033  ROUGE-L=0.148
+  overall_feature       EM=0.000  BLEU1=0.256  ROUGE-L=0.322
+  quantity_proportion   EM=0.000  BLEU1=0.347  ROUGE-L=0.387
+  objects               EM=0.000  BLEU1=0.251  ROUGE-L=0.256
+  overall_features      EM=0.000  BLEU1=0.216  ROUGE-L=0.262
+  overall features      EM=0.000  BLEU1=0.291  ROUGE-L=0.347
+  quantities or proportions  EM=0.000  BLEU1=0.398  ROUGE-L=0.377
+  quantities_proportions  EM=0.500  BLEU1=0.750  ROUGE-L=0.750
+  proportions           EM=0.000  BLEU1=0.339  ROUGE-L=0.419
+  quantity/proportion   EM=0.000  BLEU1=0.526  ROUGE-L=0.571
+  quantity or proportion  EM=0.000  BLEU1=0.588  ROUGE-L=0.588
+  features              EM=0.000  BLEU1=0.291  ROUGE-L=0.235
+  quantity_or_proportion  EM=0.000  BLEU1=0.364  ROUGE-L=0.471
+
+💾 Saved → results/rsvlmqa_moondream2.json

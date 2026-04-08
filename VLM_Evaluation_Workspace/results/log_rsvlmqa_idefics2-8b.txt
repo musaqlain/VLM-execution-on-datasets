@@ -1,0 +1,73 @@
+Chat templates should be in a 'chat_template.json' file but found key='chat_template' in the processor's config. Make sure to move your template to its own file.
+[RSVLM-QA] Loading from /home/aipmu/Datasets for VLM/Raw dataset files/RSVLM-QA.jsonl ...
+[RSVLM-QA] Loaded 700 QA pairs  (skipped 0 missing images).
+  ⏳ Downloading / loading  HuggingFaceM4/idefics2-8b  …
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:03<00:18,  3.05s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:06<00:15,  3.10s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:08<00:10,  2.62s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:10<00:07,  2.42s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:12<00:04,  2.35s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:14<00:02,  2.25s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:16<00:00,  2.13s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:16<00:00,  2.36s/it]
+  [20/700]  11.2 min elapsed
+  [40/700]  22.6 min elapsed
+  [60/700]  34.8 min elapsed
+  [80/700]  46.9 min elapsed
+  [100/700]  59.1 min elapsed
+  [120/700]  71.2 min elapsed
+  [140/700]  83.4 min elapsed
+  [160/700]  95.6 min elapsed
+  [180/700]  107.7 min elapsed
+  [200/700]  119.9 min elapsed
+  [220/700]  132.1 min elapsed
+  [240/700]  144.4 min elapsed
+  [260/700]  157.1 min elapsed
+  [280/700]  169.4 min elapsed
+  [300/700]  181.7 min elapsed
+  [320/700]  194.0 min elapsed
+  [340/700]  206.3 min elapsed
+  [360/700]  218.7 min elapsed
+  [380/700]  231.0 min elapsed
+  [400/700]  243.4 min elapsed
+  [420/700]  255.6 min elapsed
+  [440/700]  267.9 min elapsed
+  [460/700]  280.2 min elapsed
+  [480/700]  292.6 min elapsed
+  [500/700]  304.8 min elapsed
+  [520/700]  317.1 min elapsed
+  [540/700]  329.4 min elapsed
+  [560/700]  341.7 min elapsed
+  [580/700]  354.0 min elapsed
+  [600/700]  366.2 min elapsed
+  [620/700]  378.5 min elapsed
+  [640/700]  390.8 min elapsed
+  [660/700]  403.1 min elapsed
+  [680/700]  415.4 min elapsed
+  [700/700]  427.7 min elapsed
+
+✅ Inference done – 700 samples in 427.7 min
+
+==================================================
+RSVLM-QA  ▸  idefics2-8b
+==================================================
+  exact_match    : 0.0000
+  bleu1          : 0.0957
+  bleu4          : 0.0468
+  rougeL         : 0.1895
+
+Per question-type breakdown:
+  spatial               EM=0.000  BLEU1=0.183  ROUGE-L=0.251
+  object                EM=0.000  BLEU1=0.036  ROUGE-L=0.101
+  overall               EM=0.000  BLEU1=0.063  ROUGE-L=0.107
+  quantity              EM=0.000  BLEU1=0.022  ROUGE-L=0.152
+  count                 EM=0.000  BLEU1=0.203  ROUGE-L=0.203
+  presence              EM=0.000  BLEU1=0.025  ROUGE-L=0.329
+  caption               EM=0.000  BLEU1=0.002  ROUGE-L=0.099
+  overall_feature       EM=0.000  BLEU1=0.019  ROUGE-L=0.088
+  quantity_proportion   EM=0.000  BLEU1=0.004  ROUGE-L=0.167
+  objects               EM=0.000  BLEU1=0.010  ROUGE-L=0.113
+  overall_features      EM=0.000  BLEU1=0.051  ROUGE-L=0.115
+  overall features      EM=0.000  BLEU1=0.125  ROUGE-L=0.154
+  quantities or proportions  EM=0.000  BLEU1=0.184  ROUGE-L=0.444
+  quantities_proportions  EM=0.000  BLEU1=0.000  ROUGE-L=0.200
+  proportions           EM=0.000  BLEU1=0.000  ROUGE-L=0.000
+  quantity/proportion   EM=0.000  BLEU1=0.000  ROUGE-L=0.118
+  quantity or proportion  EM=0.000  BLEU1=0.000  ROUGE-L=0.111
+  features              EM=0.000  BLEU1=0.049  ROUGE-L=0.103
+  quantity_or_proportion  EM=0.000  BLEU1=0.000  ROUGE-L=0.154
+
+💾 Saved → results/rsvlmqa_idefics2-8b.json

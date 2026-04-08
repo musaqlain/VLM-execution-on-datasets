@@ -1,0 +1,124 @@
+
+============================================================
+  Model:      moondream2
+  HF ID:      vikhyatk/moondream2
+  Samples:    5 (stratified)
+  HF_TOKEN:   set (hf_pMawn...)
+  GPU:        NVIDIA RTX A4500
+  VRAM Free:  20.2 GB
+============================================================
+[Dataset] Loading DisasterM3 Bench from /home/aipmu/Datasets for VLM/Raw dataset files/DisasterM3_Bench/benchmark_release.json ...
+[Dataset] Built 17694 evaluable samples (skipped 0 missing images, 12348 segmentation).
+[Dataset] Stratified sample: {'Disaster Bearing Bodies Recognition': 1, 'Building Damage Counting': 1, 'Disaster Report': 1, 'Disaster Type Recognition': 1, 'Disaster Restoration Advice': 1, 'Road Damage Counting': 1, 'Relational Reasoning': 1, 'Disaster Scene Recognition': 1}
+[Dataset] Returning 8 samples.
+  ⏳ Loading vikhyatk/moondream2 ...
+  🔑 Using HF_TOKEN: hf_pMawn...
+
+--- Sample 1/8 [multi_label_mcq] ---
+  Image: hurricane_harvey_00000505_post_disaster.png
+  Task:  Disaster Scene Recognition
+  Q:     What land-use categories are visible in this pre-disaster image?
+Options: A. Low vegetation, B. Viaduct, C. Residential area, D. Port, E. Bridge, F. F
+  Pred:  C
+  Parsed: ['C']
+  GT:     ['A', 'C', 'F', 'G']
+  ✓ P=1.00 R=0.25 F1=0.40
+
+--- Sample 2/8 [free_text] ---
+  Image: noto_earthquake_sar_post_141.png
+  Task:  Disaster Report
+  Q:     Please describe a comprehensive damage situation based on pre- and post-disaster images.
+  Pred:  The image shows a black and white photograph of a damaged area, possibly a road or a building. The damage appears to be extensive, with visible cracks, dents, and other visible signs of destruction. T
+  GT:    DISASTER: Earthquake
+BUILDING: No buildings are visible in either image.
+ROAD: The jetty structure visible in both image
+  ✓ BLEU1=0.279 ROUGE-L=0.195
+
+--- Sample 3/8 [single_label_mcq] ---
+  Image: joplin_tornado_00000097_post_disaster.png
+  Task:  Road Damage Counting
+  Q:     Determine the ratio between intact roads and the total image area.
+Options: A. 26.73%, B. 19.09%, C. 22.91%, D. 11.45%, E. 15.27%.
+Answer with the cor
+  Pred:  D
+  Parsed: ['D']
+  GT:     ['B']
+  ✓ accuracy: 0.0
+
+--- Sample 4/8 [single_label_mcq] ---
+  Image: palu_tsunami_00000143_post_disaster_0.png
+  Task:  Relational Reasoning
+  Q:     Characterize the positional relationship that exists between object in the red box and object in the blue box
+Options: A. The damaged building in the 
+  Pred:  B
+  Parsed: ['B']
+  GT:     ['B']
+  ✓ accuracy: 1.0
+
+--- Sample 5/8 [multi_label_mcq] ---
+  Image: joplin_tornado_00000065_post_disaster.png
+  Task:  Disaster Bearing Bodies Recognition
+  Q:     What categories of objects have sustained damage in the affected area?
+Options: A. Port facilities, B. Dams, C. Roads, D. Buildings, E. Stadiums, F. F
+  Pred:  C
+  Parsed: ['C']
+  GT:     ['C', 'D', 'F', 'G']
+  ✓ P=1.00 R=0.25 F1=0.40
+
+--- Sample 6/8 [single_label_mcq] ---
+  Image: joplin_tornado_00000004_post_disaster.png
+  Task:  Disaster Type Recognition
+  Q:     What kind of calamity has this area experienced?
+Options: A. hurricane, B. tornado, C. volcano, D. explosion, E. earthquake.
+Answer with the correct o
+  Pred:  A
+  Parsed: ['A']
+  GT:     ['B']
+  ✓ accuracy: 0.0
+
+--- Sample 7/8 [free_text] ---
+  Image: midwest_flooding_00000013_post_disaster.png
+  Task:  Disaster Restoration Advice
+  Q:     Analyze disaster impacts and propose restoration strategies addressing both immediate recovery needs and long-term resilience considerations.
+  Pred:  The image shows an aerial view of a densely populated area with a mix of residential and commercial buildings, surrounded by trees. The presence of a forested area suggests that the area is likely to 
+  GT:    IMMEDIATE_RECOVERY: Based on the provided imagery and disaster report, no immediate recovery actions are necessary for t
+  ✓ BLEU1=0.153 ROUGE-L=0.143
+
+--- Sample 8/8 [single_label_mcq] ---
+  Image: hawaii_wildfire_sar_post_632.png
+  Task:  Building Damage Counting
+  Q:     What is the total number of undamaged buildings following the disaster?
+Options: A. 84, B. 60, C. 72, D. 36, E. 48.
+Answer with the correct option let
+  Pred:  C
+  Parsed: ['C']
+  GT:     ['B']
+  ✓ accuracy: 0.0
+
+✅ Inference done — 8 samples in 10.0s (0 errors)
+
+──────────────────────────────────────────────────
+  Overall Metrics for moondream2:
+──────────────────────────────────────────────────
+  mcq_single_label_accuracy          : 0.2500
+  mcq_multi_label_precision          : 1.0000
+  mcq_multi_label_recall             : 0.2500
+  mcq_multi_label_f1                 : 0.4000
+  mcq_multi_label_subset_accuracy    : 0.0000
+  mcq_multi_label_hamming_score      : 0.2500
+  free_text_bleu1                    : 0.2162
+  free_text_bleu4                    : 0.0231
+  free_text_rougeL                   : 0.1692
+
+  Per-Task Breakdown:
+    Disaster Scene Recognition               [  1] P=1.000 R=0.250 F1=0.400
+    Disaster Report                          [  1] B1=0.279 RL=0.195
+    Road Damage Counting                     [  1] acc=0.000
+    Relational Reasoning                     [  1] acc=1.000
+    Disaster Bearing Bodies Recognition      [  1] P=1.000 R=0.250 F1=0.400
+    Disaster Type Recognition                [  1] acc=0.000
+    Disaster Restoration Advice              [  1] B1=0.153 RL=0.143
+    Building Damage Counting                 [  1] acc=0.000
+
+💾 Saved → /home/aipmu/Datasets for VLM/DisasterM3_Eval/results/quicktest_moondream2.json
+  🧹 VRAM cleared.
