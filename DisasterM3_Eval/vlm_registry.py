@@ -48,6 +48,12 @@ def load_vlm(model_key, hf_id):
     if not hasattr(transformers.PreTrainedModel, "all_tied_weights_keys"):
         transformers.PreTrainedModel.all_tied_weights_keys = {}
 
+    # Monkey-patch DynamicCache for Phi-3.5-Vision compatibility.
+    # get_max_length() was removed in transformers 4.45+; the original returned None.
+    from transformers import DynamicCache
+    if not hasattr(DynamicCache, "get_max_length"):
+        DynamicCache.get_max_length = lambda self: None
+
     token = os.environ.get("HF_TOKEN", None)
     print(f"  Loading {hf_id} ...")
     if token:
