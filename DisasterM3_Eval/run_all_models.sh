@@ -16,8 +16,8 @@ MAX_SAMPLES=${1:-0}
 source "$EVAL_DIR/vlm_env/bin/activate"
 
 # Models ordered by VRAM usage (smallest first)
+# moondream2 is DISABLED — incompatible with transformers>=5.x / PyTorch 2.5
 MODELS=(
-    "moondream2"       # ~3 GB
     "kimi-vl-a3b"      # ~7 GB
     "phi-3.5-vision"   # ~9 GB
     "llava-1.5-7b"     # ~14 GB

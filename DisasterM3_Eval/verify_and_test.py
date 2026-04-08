@@ -14,8 +14,8 @@ What it checks:
 
 Usage:
   python verify_and_test.py                    # Check everything, no inference
-  python verify_and_test.py --smoke-test       # Check + run 2 samples with moondream2
-  python verify_and_test.py --download-all     # Download all 5 model weights
+  python verify_and_test.py --smoke-test       # Check + run 2 samples with llava-1.5-7b
+  python verify_and_test.py --download-all     # Download all model weights
 """
 
 import argparse
@@ -40,9 +40,9 @@ def check(label, ok, detail=""):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--smoke-test", action="store_true",
-                    help="Run 2 samples with moondream2 after checks")
+                    help="Run 2 samples with llava-1.5-7b after checks")
     ap.add_argument("--download-all", action="store_true",
-                    help="Pre-download all 5 model weights (no inference)")
+                    help="Pre-download all model weights (no inference)")
     args = ap.parse_args()
 
     all_ok = True
@@ -192,7 +192,7 @@ def main():
 
     # ── 7. Smoke Test ──
     if args.smoke_test:
-        section("7. Smoke Test (2 samples with moondream2)")
+        section("7. Smoke Test (2 samples with llava-1.5-7b)")
         try:
             from dataset_loader import load_disasterm3_bench
             from vlm_registry import load_vlm, ask_vlm, unload_model
@@ -202,8 +202,9 @@ def main():
             data = load_disasterm3_bench(max_samples=2, stratified=True)
             check("Loaded 2 stratified samples", len(data) >= 1)
 
-            model, proc = load_vlm("moondream2", MODELS["moondream2"])
-            check("Moondream2 loaded", True)
+            SMOKE_MODEL = "llava-1.5-7b"
+            model, proc = load_vlm(SMOKE_MODEL, MODELS[SMOKE_MODEL])
+            check("LLaVA-1.5-7B loaded", True)
 
             for i, item in enumerate(data):
                 prompted = get_prompt_and_images(item)
@@ -212,7 +213,7 @@ def main():
                     prompt_text=prompted["prompt_text"],
                     image_paths=prompted["image_paths"],
                     needs_dual_image=prompted["needs_dual_image"],
-                    model_key="moondream2",
+                    model_key=SMOKE_MODEL,
                     max_new_tokens=64,
                 )
                 print(f"\n  Sample {i + 1}:")
@@ -229,18 +230,18 @@ def main():
             check("Smoke test", False, str(e)[:200])
             all_ok = False
     else:
-        print("\n  (Use --smoke-test to run 2 samples with moondream2)")
+        print("\n  (Use --smoke-test to run 2 samples with llava-1.5-7b)")
 
     # ── Summary ──
     section("SUMMARY")
     if all_ok:
         print("  All checks passed! You are ready to run.\n")
         print("  Quick test (50 samples, 1 model):")
-        print("    python run_test.py --model moondream2 --max_samples 50 --stratified\n")
+        print("    python run_test.py --model llava-1.5-7b --max_samples 50 --stratified\n")
         print("  Full dataset (all samples, 1 model):")
-        print("    python run_test.py --model moondream2 --stratified\n")
-        print("  All 5 models:")
-        print("    powershell -ExecutionPolicy Bypass -File run_all_models.ps1\n")
+        print("    python run_test.py --model llava-1.5-7b --stratified\n")
+        print("  All 4 models:")
+        print("    bash run_all_models.sh\n")
     else:
         print("  Some checks FAILED. Fix the issues above before running.\n")
 

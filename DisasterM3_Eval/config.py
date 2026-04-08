@@ -35,7 +35,7 @@ os.makedirs(RESULTS_DIR, exist_ok=True)
 # ─────────────────┴────────┴─────────────┴──────────────────────────────────
 
 MODELS = {
-    "moondream2":       "vikhyatk/moondream2",
+    # "moondream2":     "vikhyatk/moondream2",  # DISABLED: incompatible with transformers>=5.x / PyTorch 2.5
     "phi-3.5-vision":   "microsoft/Phi-3.5-vision-instruct",
     "kimi-vl-a3b":      "moonshotai/Kimi-VL-A3B-Instruct",
     "llava-1.5-7b":     "llava-hf/llava-1.5-7b-hf",
