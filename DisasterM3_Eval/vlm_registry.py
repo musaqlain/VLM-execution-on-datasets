@@ -54,12 +54,16 @@ def load_vlm(model_key, hf_id):
         print(f"  Using HF_TOKEN: {token[:8]}...")
 
     if model_key == "moondream2":
+        # Pin to 2025-06-21 release — the latest stable revision.
+        # Older cached revisions produce garbage with transformers>=5.x.
+        MOONDREAM_REV = "2025-06-21"
         model = AutoModelForCausalLM.from_pretrained(
-            hf_id, trust_remote_code=True,
-            dtype=torch.bfloat16, token=token,
+            hf_id, trust_remote_code=True, token=token,
+            revision=MOONDREAM_REV,
             device_map={"": "cuda"},
         )
-        # New Moondream2 API: model.query(image, question) — no tokenizer needed
+        # New Moondream2 API (2025+): model.query(image, question)
+        # No tokenizer/processor needed.
         return model, None
 
     if model_key == "phi-3.5-vision":
